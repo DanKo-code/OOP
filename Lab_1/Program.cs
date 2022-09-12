@@ -244,7 +244,7 @@ namespace OOP
 
             //Exercise 4///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if !Ex_4_a
+#if Ex_4_a
             (int, string, char, string, ulong) Cortege = (18, "Данила", 'Д', "Козляковский", 2281337);
 
             Console.WriteLine(Cortege);
@@ -258,6 +258,68 @@ namespace OOP
             var Second = (a: 10, b: "20");
             
             bool result = First != Second;
+
+            var p = ("John", "Quincy", "Adams", "Boston");
+            var (fName, _, city, _) = p;
+
+#endif
+
+            //Exercise 5///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#if !Ex_5
+            int Max(int[] arr)
+            {
+                int max = arr[0];
+
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    if (max < arr[i])
+                    {
+                        max = arr[i];
+                    }
+                }
+   
+                return max;
+            }
+
+            int Min(int[] arr)
+            {
+                int min = arr[0];
+
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    if (min > arr[i])
+                    {
+                        min = arr[i];
+                    }
+                }
+
+                return min;
+            }
+
+            int Sum(int[] arr)
+            {
+                int sum=0;
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    sum += arr[i];
+                }
+
+                return sum;
+            }
+
+            Tuple<int, int, int, char> FOO(int[] arr, string str)
+            {
+                return Tuple.Create(Max(arr), Min(arr), Sum(arr), str[0]);
+            }
+
+            int[] arr_int = { 5, -70, 50 };
+            string arr_str = "ABC";
+
+            var T = FOO(arr_int, arr_str);
+
 #endif
 
 
