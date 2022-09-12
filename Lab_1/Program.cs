@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace OOP
 {
@@ -102,11 +103,91 @@ namespace OOP
             //компилятор лишь выбирает наиболее подходящий тип в момент инициализации
 #endif
 
-            //Exercise 1///////////////////////////////////////////////////////////////////////////////////////////////////
+            //Exercise 2///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if !Ex_2_a
+#if Compare_Initialization_STR
+            string str1 = "a";
+            string str2 = "а";
 
+            int result = string.Compare(str1, str2); //сравнение по алфавиту
+            if (result < 0)
+            {
+                Console.WriteLine("Строка greeting перед строкой world");
+            }
+            else if (result > 0)
+            {
+                Console.WriteLine("Строка greeting стоит после строки world");
+            }
+            else
+            {
+                Console.WriteLine("Строки greeting и world идентичны, либо их length == 0");
+            }
 #endif
+
+#if Converting_STR
+            string str1 = "Nikita";
+            string str2 = "is";
+            string str3 = "groot";
+
+            string result = str1 + str2 + str3; // Сцепление
+            result = "Nikita";                  // Копирование
+            result = str1.Substring(0, 3);
+
+            result = "Nikita is groot";         // Разделение строки
+            string[] str_arr = result.Split(/*'a'*/);
+
+            foreach (string sub in str_arr)
+            {
+                Console.WriteLine($"Substring: {sub}");
+            }
+
+            result = "Nikitaisgood";           // Вставка подстроки в заданную позицию
+            result = result.Insert(6, " ");
+
+            result = "Nikita is groot";        // Удаление подстроки
+            int foundS1 = result.IndexOf(" ");
+            int foundS2 = result.IndexOf(" ", foundS1 + 1);
+
+            if (foundS1 != foundS2 && foundS1 >= 0)
+            {
+                result = result.Remove(foundS1 + 1, foundS2 - foundS1);
+
+                Console.WriteLine(result);
+            }
+
+            result = "groot"; 
+            result = $"Nikita is {result}";
+#endif
+
+#if Null_Void_STR
+            string Empty = "";
+            string Null = null;
+
+            bool result = String.IsNullOrEmpty(Empty);
+            result = String.IsNullOrEmpty(Null);
+
+            result = String.IsNullOrWhiteSpace(Empty);
+
+            if (String.IsNullOrEmpty(Empty) && String.IsNullOrEmpty(Null))
+            {
+                Console.WriteLine("\nОбе строки равны null или пустые!");
+            }
+            else
+            {
+                Console.WriteLine("\nОбе строки не null и не пуст!");
+            }
+#endif
+
+#if StringBuilder
+            StringBuilder result = new StringBuilder(" is groot");
+            result.Insert(0, "Nikita");
+            result.Remove(10, 5);
+            result.Append("debil");
+#endif
+
+            //Exercise 2///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
             Console.ReadKey();
