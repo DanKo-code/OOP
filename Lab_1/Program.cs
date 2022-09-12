@@ -244,8 +244,20 @@ namespace OOP
 
             //Exercise 4///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if Ex_4_a
+#if !Ex_4_a
+            (int, string, char, string, ulong) Cortege = (18, "Данила", 'Д', "Козляковский", 2281337);
 
+            Console.WriteLine(Cortege);
+
+            Console.WriteLine("\n" + Cortege.Item1 + " " + Cortege.Item3 + " " + Cortege.Item4);
+
+            (var a, var b) = (144, "156");
+            (int c, string d) = (144, "156");
+
+            var First = (a: 10, b: "20");
+            var Second = (a: 10, b: "20");
+            
+            bool result = First != Second;
 #endif
 
 
