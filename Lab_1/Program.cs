@@ -131,7 +131,7 @@ namespace OOP
 
             string result = str1 + str2 + str3; // Сцепление
             result = "Nikita";                  // Копирование
-            result = str1.Substring(0, 3);
+            result = str1.Substring(0, 3);      // Выделение подстроки
 
             result = "Nikita is groot";         // Разделение строки
             string[] str_arr = result.Split(/*'a'*/);
@@ -185,8 +185,68 @@ namespace OOP
             result.Append("debil");
 #endif
 
-            //Exercise 2///////////////////////////////////////////////////////////////////////////////////////////////////
+            //Exercise 3///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#if Ex_3_a
+            int[,] Matrix = new int[3, 3] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            for (int i = 0; i < Matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < Matrix.GetLength(1); j++)
+                {
+                    Console.Write(Matrix[i, j] + " ");
+                }
+                Console.Write("\n\n");
+            }
+#endif
+
+#if Ex_3_b
+            string[] str_arr = { "one", "two", "three" };
+            
+
+           
+                Console.Write("\nNumbers: ");
+                foreach (string s in str_arr)
+                {
+                    Console.Write(s + " ");
+                }
+
+                Console.Write("\n\n"+ "Длинна массива = "  + str_arr.Length);
+
+                Console.Write("\n\n Введите позицию: ");
+                int position = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("\n\n Введите строку: ");
+                string str = Console.ReadLine();
+
+                str_arr[position] = str;
+#endif
+
+#if Ex_3_c
+            Random Rnd = new Random();
+            int[][] SArray = new int[3][];
+            SArray[0] = new int[2];
+            SArray[1] = new int[3];
+            SArray[2] = new int[4];
+
+            for (int i = 0; i < SArray.Length; i++)
+            {
+                for (int j = 0; j < SArray[i].Length; j++)
+                {
+                    SArray[i][j] = j;
+                    Console.Write(SArray[i][j] + " ");
+                }
+                Console.Write("\n\n");
+            }
+
+            var VarInt = new int[] { 1, 2, 3, 4, 5 };
+            var VarStr = "Abcdefg";
+#endif
+
+            //Exercise 4///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if Ex_4_a
+
+#endif
 
 
 
