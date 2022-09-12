@@ -267,7 +267,7 @@ namespace OOP
             //Exercise 5///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#if !Ex_5
+#if Ex_5
             int Max(int[] arr)
             {
                 int max = arr[0];
@@ -322,6 +322,44 @@ namespace OOP
 
 #endif
 
+            //Exercise 6///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if Ex_5
+            void FirstFunc()
+            {
+                try
+                {
+                    checked
+                    {
+                        int x = int.MaxValue;
+                        x++;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("1) Произошло переполнение!");
+                }
+            }
+
+            void SecondFunc()
+            {
+                try
+                {
+                    unchecked // Не вызывает OverflowException
+                    {
+                        int x = int.MaxValue;
+                        x++;
+                    }
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("2) Произошло переполнение!");
+                }
+            }
+
+            FirstFunc();
+            SecondFunc();
+#endif
 
 
             Console.ReadKey();
