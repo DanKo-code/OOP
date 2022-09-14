@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Text;
 
+
 namespace OOP
 {
-
-
+   
     class Lab_1
     {
         static void Main(string[] args)
         {
-            //Exercise 1///////////////////////////////////////////////////////////////////////////////////////////////////
+            //Exercise 1/////////////////////////////////////////////////////////////////////////////////////////////////// 
 
 #if Primitive_Types
             bool Bool = true;
@@ -30,13 +30,16 @@ namespace OOP
             long Int_64 = -100L;
             ulong UInt_64 = 100UL;
 
+            string str = "dfv";
+            object obj = 1;
+
             Console.WriteLine("bool = {0}, byte = {1}, sbyte = {2}, char = {3}" +
-                "\ndecimal = {4}, double = {5}, float = {6}, short = {7}" + 
-                "\nushort = {8},  int = {9}, uint = {10}, long = {11}, ulong = {12}",
+                "\ndecimal = {4}, double = {5}, float = {6}, short = {7}" +
+                "\nushort = {8},  int = {9}, uint = {10}, long = {11}, ulong = {12}, str = {13}, object = {14}",
                
                 Bool, Byte, SByte, Char, Decimal,
                 Double, Float, Int_16, UInt_16, Int_32, UInt_32,
-                 Int_64, UInt_64);
+                 Int_64, UInt_64, str, obj);
 #endif
 
 #if Сonverting
@@ -106,8 +109,8 @@ namespace OOP
             //Exercise 2///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #if Compare_Initialization_STR
-            string str1 = "a";
-            string str2 = "а";
+            string str1 = "A";
+            string str2 = "a";
 
             int result = string.Compare(str1, str2); //сравнение по алфавиту
             if (result < 0)
@@ -167,6 +170,7 @@ namespace OOP
             result = String.IsNullOrEmpty(Null);
 
             result = String.IsNullOrWhiteSpace(Empty);
+
 
             if (String.IsNullOrEmpty(Empty) && String.IsNullOrEmpty(Null))
             {
@@ -310,9 +314,9 @@ namespace OOP
                 return sum;
             }
 
-            Tuple<int, int, int, char> FOO(int[] arr, string str)
+            dynamic FOO(int[] arr, string str)
             {
-                return Tuple.Create(Max(arr), Min(arr), Sum(arr), str[0]);
+                return (Max(arr), Min(arr), Sum(arr), str[0]);
             }
 
             int[] arr_int = { 5, -70, 50 };
@@ -320,11 +324,13 @@ namespace OOP
 
             var T = FOO(arr_int, arr_str);
 
+            
+
 #endif
 
             //Exercise 6///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if Ex_6
+#if Ex_6_TEST_RP
             void FirstFunc()
             {
                 try
@@ -335,9 +341,9 @@ namespace OOP
                         x++;
                     }
                 }
-                catch (Exception)
+                catch (Exception e) 
                 {
-                    Console.WriteLine("1) Произошло переполнение!");
+                    Console.WriteLine(e);
                 }
             }
 
@@ -357,11 +363,12 @@ namespace OOP
                 }
             }
 
+            
+
             FirstFunc();
             SecondFunc();
 #endif
-
-
+            
             Console.ReadKey();
         }
     }
