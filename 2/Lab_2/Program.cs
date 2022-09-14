@@ -11,6 +11,7 @@ namespace Lab_2
         static void Main(string[] args)
         {
             Console.WriteLine("Nikita");
+            Console.WriteLine("Nikita");
         }
     }
 }
