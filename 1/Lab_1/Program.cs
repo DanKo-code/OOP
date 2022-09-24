@@ -19,9 +19,13 @@ namespace OOP
 
             char Char = '\0';
 
-            decimal Decimal = 228.1337M;    // точность 28-29 знаков
-            double Double = 1.23;           // точность 15-17 знаков
-            float Float = 1.23f;            // точность 6-9 знаков
+            //decimal Decimal = 228.1337M;    // точность 28-29 знаков
+            //double Double = 1.23;           // точность 15-17 знаков
+            //float Float = 1.23f;            // точность 6-9 знаков
+
+            decimal Decimal = ((decimal)1/3);    // точность 28-29 знаков
+            double Double = ((double)1 / 3);           // точность 15-17 знаков
+            float Float = ((float)1 / 3);
 
             short Int_16 = 1;
             ushort UInt_16 = 1;
@@ -32,6 +36,7 @@ namespace OOP
 
             string str = "dfv";
             object obj = 1;
+            
 
             Console.WriteLine("bool = {0}, byte = {1}, sbyte = {2}, char = {3}" +
                 "\ndecimal = {4}, double = {5}, float = {6}, short = {7}" +
@@ -248,7 +253,7 @@ namespace OOP
 
             //Exercise 4///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if Ex_4_a
+#if !Ex_4_a
             (int, string, char, string, ulong) Cortege = (18, "Данила", 'Д', "Козляковский", 2281337);
 
             Console.WriteLine(Cortege);

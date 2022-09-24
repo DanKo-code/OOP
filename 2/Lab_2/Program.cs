@@ -12,6 +12,6 @@ namespace Lab_2
         {
             Console.WriteLine("Nikita");
             Console.WriteLine("Nikita");
-        }
+        }2
     }
 }
