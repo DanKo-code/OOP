@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_2", "Lab_2.csproj", "{661F181D-C909-41A1-A612-6493C16757F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "..\TEST\TEST.csproj", "{7F084D8A-B94B-4A35-BA42-3241EDBCFA47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARTEM", "..\ARTEM\ARTEM.csproj", "{CFB39E0C-3FE8-46F5-BA38-9171800A2005}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{661F181D-C909-41A1-A612-6493C16757F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{661F181D-C909-41A1-A612-6493C16757F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{661F181D-C909-41A1-A612-6493C16757F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F084D8A-B94B-4A35-BA42-3241EDBCFA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F084D8A-B94B-4A35-BA42-3241EDBCFA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F084D8A-B94B-4A35-BA42-3241EDBCFA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F084D8A-B94B-4A35-BA42-3241EDBCFA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFB39E0C-3FE8-46F5-BA38-9171800A2005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB39E0C-3FE8-46F5-BA38-9171800A2005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB39E0C-3FE8-46F5-BA38-9171800A2005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB39E0C-3FE8-46F5-BA38-9171800A2005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
