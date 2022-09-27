@@ -10,9 +10,6 @@ namespace Lab_2
     {
        public partial class  Phone
        {
-            private const int limitTime = 100; 
-
-
             //Constructors
             public Phone(string firstName, string secondName, string patronymic, int creditCardNumber, int CityTalkTime, int GetSetlongDistanceCallTime)
             {
@@ -131,6 +128,7 @@ namespace Lab_2
                 Console.Write(temp.firstName, temp.secondName, temp.credit, temp.patronymic);
             }
 
+
             //partial
             //+
 
@@ -211,7 +209,7 @@ namespace Lab_2
             //Const
             private const string statmant = "Velcom";
 
-            ///////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////
             private readonly int id;
 
             private string firstName;
@@ -225,6 +223,8 @@ namespace Lab_2
 
             private int CityTalkTime = 100;
             private int longDistanceCallTime;
+
+            private const int limitTime = 100;
 
             static int countOfUsers;
         }
@@ -242,8 +242,6 @@ namespace Lab_2
             test_1.TestPrivatePhone();
 
             test_1.GetSetFirstName = "Danila";
-
-            object buff = test_1;
 
             test_1.Equals(test_1);
 
