@@ -11,14 +11,14 @@ namespace Lab_2
        public partial class  Phone
        {
             //Constructors
-            public Phone(string firstName, string secondName, string patronymic, int creditCardNumber, int CityTalkTime, int GetSetlongDistanceCallTime)
+            public Phone(string firstName, string secondName, string patronymic, int creditCardNumber, int CityTalkTime, int longDistanceCallTime)
             {
                 this.firstName = Check_str(ref firstName);
                 this.secondName = Check_str(ref secondName);
                 this.patronymic = Check_str(ref patronymic);
                 this.creditCardNumber = Check_numb(ref creditCardNumber, 6);
                 this.CityTalkTime = CityTalkTime;
-                this.longDistanceCallTime = GetSetlongDistanceCallTime;
+                this.longDistanceCallTime = longDistanceCallTime;
 
                 this.id = this.GetHashCode();
                 countOfUsers++;
@@ -28,7 +28,7 @@ namespace Lab_2
                 this.firstName = "User_firstName";
                 this.secondName = "User_secondName";
                 this.patronymic = "User_patronymic";
-                this.creditCardNumber = 123456789;
+                this.creditCardNumber = 123456;
 
                 this.id = this.GetHashCode();
                 countOfUsers++;
@@ -164,7 +164,7 @@ namespace Lab_2
 
             private int Check_numb(ref int numb, int border)
             {
-                if (numb == border) { return 0; }
+                if (numb.ToString().Length != border) return 0;
                 return numb;
             }
 
@@ -251,6 +251,9 @@ namespace Lab_2
             test_1.GetHashCode();
 
             var someType = new { firstName = "artem", secondName = "pshenko", patronymic = "fedor", creditCardNumber = 123456 };
+
+            Console.WriteLine();
+
             Console.Write(someType.GetType());
 
             ///////////////////////////////////////////////////////////////////////////////
@@ -258,16 +261,16 @@ namespace Lab_2
 
             int count = 2;
             Phone[] phoneARR = new Phone[count];
-            phoneARR[0] = new Phone("Nikita", "Iluin", "SerGeyevich", 567098, 101, 0);
+            phoneARR[0] = new Phone("Nikita", "Iluin", "SerGeyevich", 5670981, 100, 0);
             phoneARR[1] = new Phone("Danila", "Iluin", "SerGeyevich", 567098, 101, 100);
 
 
-            //Console.Write("\n\n\n");
+            Console.Write("\n\n\n");
 
-            //for (int i = 0; i < count; i++)
-            //{
-            //    if (phoneARR[i].GetSetCityTalkTime > 100) Console.Write($"{phoneARR[i].ToString()}\n\n");
-            //}
+            for (int i = 0; i < count; i++)
+            {
+                if (phoneARR[i].GetSetCityTalkTime > 100) Console.Write($"{phoneARR[i].ToString()}\n\n");
+            }
 
             Console.Write("\n\n\n");
 
@@ -276,6 +279,8 @@ namespace Lab_2
                 if (phoneARR[i].GetSetlongDistanceCallTime > 0) Console.Write($"{phoneARR[i].ToString()}\n\n");
             }
 
+
+            //sealed!!!
         }
     }
 }
