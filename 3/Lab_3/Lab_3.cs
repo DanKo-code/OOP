@@ -18,6 +18,26 @@ namespace Lab_3
 
         class MySet
         {
+            public static void DeletePositiveElements(ref MySet first)
+            {
+                MySet temp = new MySet();
+
+                for (int i = 0; i < first.items.Length; i++)
+                {
+                    if(first.items[i] < 0)
+                    {
+                        temp.Push_Back(first.items[i]);
+                    }
+                }
+
+                first = temp;
+            }
+
+            public int GetFirstElement()
+            {
+                return this.items[0];
+            }
+
             public static explicit operator Date(MySet first)
             {
                 Date temp = new Date();
@@ -123,7 +143,7 @@ namespace Lab_3
             a.Push_Back(5);
             a.Push_Back(-6);
             a.Push_Back(38);
-            a.Push_Back(10);
+            a.Push_Back(-10);
             a.Push_Back(10);
 
             MySet b = new MySet();
@@ -143,7 +163,9 @@ namespace Lab_3
 
             test = (Date)a;
 
+            int firstElement = b.GetFirstElement();
 
+            MySet.DeletePositiveElements(ref a);
 
             Console.ReadKey();
         }
