@@ -27,6 +27,32 @@ namespace Lab_3
             {
                 return first.items.Length;
             }
+
+            public static void DeletePositiveElements(ref MySet first)
+            {
+                MySet temp = new MySet();
+
+                for (int i = 0; i < first.items.Length; i++)
+                {
+                    if (first.items[i] < 0)
+                    {
+                        temp.Push_Back(first.items[i]);
+                    }
+                }
+
+                first = temp;
+            }
+
+            public static char GetFirstElement(string first)
+            {
+                foreach(char symbol in first)
+                {
+                    if (48 < symbol && symbol < 57) return (char)symbol;
+                }
+
+                return ' ';
+            }
+
         }
 
         public class Production
@@ -63,26 +89,6 @@ namespace Lab_3
             }
 
             Production Prod = new Production("Danila");
-
-            public static void DeletePositiveElements(ref MySet first)
-            {
-                MySet temp = new MySet();
-
-                for (int i = 0; i < first.items.Length; i++)
-                {
-                    if(first.items[i] < 0)
-                    {
-                        temp.Push_Back(first.items[i]);
-                    }
-                }
-
-                first = temp;
-            }
-
-            public int GetFirstElement()
-            {
-                return this.items[0];
-            }
 
             public static explicit operator Date(MySet first)
             {
@@ -210,9 +216,10 @@ namespace Lab_3
 
             test = (Date)a;
 
-            int firstElement = b.GetFirstElement();
+            string str = "nikita 186";
+            char firstElement = StatisticOperation.GetFirstElement(str);
 
-            MySet.DeletePositiveElements(ref a);
+            StatisticOperation.DeletePositiveElements(ref a);
 
             /////////////////////Инициализация Developer/////////////////////////////////
 
