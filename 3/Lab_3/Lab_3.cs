@@ -11,8 +11,22 @@ namespace Lab_3
 
     class Lab_3
     {
+        public class Date
+        {
+            public int[] buffer;
+        }
+
         class MySet
         {
+            public static explicit operator Date(MySet first)
+            {
+                Date temp = new Date();
+
+                temp.buffer = first.items;
+
+                return temp;
+            }
+
             public static MySet operator *(MySet first, MySet second)
             {
                 MySet temp = new MySet();
@@ -97,8 +111,8 @@ namespace Lab_3
            }
 
             //для добавления
-            private int[] items = {0};
-            private bool flag = false;          
+            public int[] items = {0};
+            public bool flag = false;
         }
 
 
@@ -107,7 +121,7 @@ namespace Lab_3
             MySet a = new MySet();
             
             a.Push_Back(5);
-            a.Push_Back(6);
+            a.Push_Back(-6);
             a.Push_Back(38);
             a.Push_Back(10);
             a.Push_Back(10);
@@ -124,6 +138,12 @@ namespace Lab_3
             Console.WriteLine(a < b);
 
             MySet c = a * b;
+
+            Date test = new Date();
+
+            test = (Date)a;
+
+
 
             Console.ReadKey();
         }
