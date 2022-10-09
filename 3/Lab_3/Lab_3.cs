@@ -11,6 +11,24 @@ namespace Lab_3
 
     class Lab_3
     {
+        public static class StatisticOperation
+        {
+            public static int GetSumFirstLastElement(MySet first)
+            {
+                return first.items.Max() + first.items.Min();
+            }
+
+            public static int GetDifferenceFirstLastElement(MySet first)
+            {
+                return first.items.Max() - first.items.Min();
+            }
+
+            public static int GetAlementsAmount(MySet first)
+            {
+                return first.items.Length;
+            }
+        }
+
         public class Production
         {
             public Production(string Name)
@@ -28,7 +46,7 @@ namespace Lab_3
             public int[] buffer;
         }
 
-        class MySet
+        public class MySet
         {
             public class Developer
             {
@@ -184,6 +202,7 @@ namespace Lab_3
             /////////////////////////////////////////////////////
 
             Console.WriteLine(a < b);
+            Console.WriteLine(a > b);
 
             MySet c = a * b;
 
@@ -198,6 +217,14 @@ namespace Lab_3
             /////////////////////Инициализация Developer/////////////////////////////////
 
             MySet.Developer DeveloperDanila = new MySet.Developer("Danila Kozlyakovsi Aleksandrovich", "4 poit");
+
+            /////////////////////Тестим StatisticOperation/////////////////////////////////
+
+            Console.WriteLine(StatisticOperation.GetSumFirstLastElement(b));
+
+            Console.WriteLine(StatisticOperation.GetDifferenceFirstLastElement(b));
+
+            Console.WriteLine(StatisticOperation.GetAlementsAmount(b));
 
 
             Console.ReadKey();
