@@ -61,7 +61,11 @@ namespace Lab_2
             public string GetSetFirstName
             {
                 get { return firstName; }
-                set { firstName = Check_str(ref value); }
+                set 
+                {
+                    Console.Write("!!!!!!!!!!");
+                    firstName = Check_str(ref value); 
+                }
             }
 
             public string GetSetSecondName
@@ -157,6 +161,8 @@ namespace Lab_2
                 foreach( char symbol in str )
                 {
                     if ( 48 < symbol && symbol < 57) return "";
+                   
+                   
                 }
 
                 return str;

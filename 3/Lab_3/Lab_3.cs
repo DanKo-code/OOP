@@ -11,14 +11,41 @@ namespace Lab_3
 
     class Lab_3
     {
-        class Set
+        class MySet
         {
-           //Set()
-           //{
-                
-           //}
 
-           public void ADD(int a)
+            
+            public static bool operator >(MySet first, MySet second)
+           {
+                bool check = false;
+
+                for (int i = 0; i < first.items.Length; i++)
+                {
+                    for (int j = 0; j < second.items.Length; j++)
+                    {
+                        if (first.items[i] == second.items[j])
+                        {
+                            check = true;
+                            break;
+                        }
+                    }
+
+                    if (!check) return false;
+
+                    check = false;
+                }
+
+                return true;
+           }
+
+            public static bool operator <(MySet first, MySet second)
+            {
+                if (second > first) return true;
+
+                return false;
+            }
+
+            public void Push_Back(int a)
            {
                 //базовый случай
                 if(!flag)
@@ -30,6 +57,15 @@ namespace Lab_3
                     return;
                 }
 
+                ////////////////////////////////Проверка на одинаковые элементы///////
+
+                for (int i = 0; i < this.items.Length; i++)
+                {
+                    if (a == this.items[i]) return;
+                }
+
+                //////////////////////////////////////////////////////////////////////
+                
                 //остальные случаи
                 int[] newArr = new int[items.Length + 1];
 
@@ -43,20 +79,34 @@ namespace Lab_3
                 items = newArr;
            }
 
-
             //для добавления
             private int[] items = {0};
-            static bool flag = false;
-          
+            private bool flag = false;          
         }
 
 
         static void Main()
         {
-            Set a = new Set();
+            MySet a = new MySet();
+            
+            a.Push_Back(1);
+            a.Push_Back(2);
+            a.Push_Back(3);
+            a.Push_Back(4);
+            a.Push_Back(4);
 
-            a.ADD(1);
-            a.ADD(2);
+            MySet b = new MySet();
+
+            b.Push_Back(1);
+            b.Push_Back(2);
+            b.Push_Back(3);
+            b.Push_Back(3);
+
+            /////////////////////////////////////////////////////
+
+            Console.Write(a < b);
+
+            Console.ReadKey();
         }
     }
 }

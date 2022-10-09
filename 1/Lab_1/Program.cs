@@ -254,7 +254,9 @@ namespace OOP
             //Exercise 4///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #if Ex_4_a
-            (int, string, char, string, ulong) Cortege = (18, "Данила", 'Д', "Козляковский", 2281337);
+            //(int, string, char, string, ulong) Cortege = (18, "Данила", 'Д', "Козляковский", 2281337);
+
+            var Cortege = (18, "Данила", 'Д', "Козляковский", 2281337);
 
             Console.WriteLine(Cortege);
 
