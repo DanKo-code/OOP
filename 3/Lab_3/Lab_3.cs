@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace Lab_3
 {
-    
+
 
 
     class Lab_3
     {
+        public class Production
+        {
+            public Production(string Name)
+            {
+                this.ID = this.GetHashCode();
+                this.organizationName = Name;
+            }
+
+            int ID = 123;
+            string organizationName;
+        }
+
         public class Date
         {
             public int[] buffer;
@@ -18,6 +30,22 @@ namespace Lab_3
 
         class MySet
         {
+            public class Developer
+            {
+                public Developer(string fullName, string Department)
+                {
+                    this.fullName = fullName;
+                    this.id = this.GetHashCode();
+                    this.Department = Department;
+                }
+
+                string fullName;
+                int id;
+                string Department;
+            }
+
+            Production Prod = new Production("Danila");
+
             public static void DeletePositiveElements(ref MySet first)
             {
                 MySet temp = new MySet();
@@ -166,6 +194,11 @@ namespace Lab_3
             int firstElement = b.GetFirstElement();
 
             MySet.DeletePositiveElements(ref a);
+
+            /////////////////////Инициализация Developer/////////////////////////////////
+
+            MySet.Developer DeveloperDanila = new MySet.Developer("Danila Kozlyakovsi Aleksandrovich", "4 poit");
+
 
             Console.ReadKey();
         }
