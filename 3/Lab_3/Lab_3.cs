@@ -13,8 +13,25 @@ namespace Lab_3
     {
         class MySet
         {
+            public static MySet operator *(MySet first, MySet second)
+            {
+                MySet temp = new MySet();
 
-            
+                for (int i = 0; i < first.items.Length; i++)
+                {
+                    for (int j = 0; j < second.items.Length; j++)
+                    {
+                        if (first.items[i] == second.items[j])
+                        {
+                            temp.Push_Back(first.items[i]);
+                            break;
+                        }
+                    }
+                }
+
+                return temp;
+            }
+
             public static bool operator >(MySet first, MySet second)
            {
                 bool check = false;
@@ -89,22 +106,24 @@ namespace Lab_3
         {
             MySet a = new MySet();
             
-            a.Push_Back(1);
-            a.Push_Back(2);
-            a.Push_Back(3);
-            a.Push_Back(4);
-            a.Push_Back(4);
+            a.Push_Back(5);
+            a.Push_Back(6);
+            a.Push_Back(38);
+            a.Push_Back(10);
+            a.Push_Back(10);
 
             MySet b = new MySet();
 
             b.Push_Back(1);
             b.Push_Back(2);
-            b.Push_Back(3);
-            b.Push_Back(3);
+            b.Push_Back(38);
+            b.Push_Back(5);
 
             /////////////////////////////////////////////////////
 
-            Console.Write(a < b);
+            Console.WriteLine(a < b);
+
+            MySet c = a * b;
 
             Console.ReadKey();
         }
