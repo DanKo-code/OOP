@@ -6,72 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab_3
 {
-
-
-
-    class Lab_3
+     public partial class Lab_3
     {
-        public static class StatisticOperation
-        {
-            public static int GetSumFirstLastElement(MySet first)
-            {
-                return first.items.Max() + first.items.Min();
-            }
-
-            public static int GetDifferenceFirstLastElement(MySet first)
-            {
-                return first.items.Max() - first.items.Min();
-            }
-
-            public static int GetAlementsAmount(MySet first)
-            {
-                return first.items.Length;
-            }
-
-            public static void DeletePositiveElements(ref MySet first)
-            {
-                MySet temp = new MySet();
-
-                for (int i = 0; i < first.items.Length; i++)
-                {
-                    if (first.items[i] < 0)
-                    {
-                        temp.Push_Back(first.items[i]);
-                    }
-                }
-
-                first = temp;
-            }
-
-            public static char GetFirstElement(string first)
-            {
-                foreach(char symbol in first)
-                {
-                    if (48 < symbol && symbol < 57) return (char)symbol;
-                }
-
-                return ' ';
-            }
-
-        }
-
-        public class Production
-        {
-            public Production(string Name)
-            {
-                this.ID = this.GetHashCode();
-                this.organizationName = Name;
-            }
-
-            int ID = 123;
-            string organizationName;
-        }
-
-        public class Date
-        {
-            public int[] buffer;
-        }
-
         public class MySet
         {
             public class Developer
@@ -184,42 +120,38 @@ namespace Lab_3
 
             //для добавления
             public int[] items = {0};
-            public bool flag = false;
+            private bool flag = false;
         }
-
 
         static void Main()
         {
             MySet a = new MySet();
             
-            a.Push_Back(5);
-            a.Push_Back(-6);
-            a.Push_Back(38);
-            a.Push_Back(-10);
-            a.Push_Back(10);
-
+            a.Push_Back(1);
+            a.Push_Back(2);
+            a.Push_Back(3);
+            a.Push_Back(40);
+           
             MySet b = new MySet();
 
             b.Push_Back(1);
             b.Push_Back(2);
+            b.Push_Back(3);
             b.Push_Back(38);
-            b.Push_Back(5);
+            b.Push_Back(40);
+            b.Push_Back(-5);
+            b.Push_Back(-6);
 
             /////////////////////////////////////////////////////
 
-            Console.WriteLine(a < b);
             Console.WriteLine(a > b);
+            Console.WriteLine(a < b);
 
             MySet c = a * b;
 
-            Date test = new Date();
+            
 
-            test = (Date)a;
-
-            string str = "nikita 186";
-            char firstElement = StatisticOperation.GetFirstElement(str);
-
-            StatisticOperation.DeletePositiveElements(ref a);
+            var test = (Date)a;
 
             /////////////////////Инициализация Developer/////////////////////////////////
 
@@ -233,6 +165,12 @@ namespace Lab_3
 
             Console.WriteLine(StatisticOperation.GetAlementsAmount(b));
 
+            string str = "nikita 186";
+
+            char firstElement = str.GetFirstElement();
+
+
+            b.DeletePositiveElements(ref b);
 
             Console.ReadKey();
         }

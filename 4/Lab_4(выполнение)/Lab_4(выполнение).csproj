@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{765D0DAF-1948-4B5B-8723-F6A3A33203D2}</ProjectGuid>
+    <ProjectGuid>{FFD3A234-9E17-4BB8-9E60-B2AEA48A08B9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Lab_3</RootNamespace>
-    <AssemblyName>Lab_3</AssemblyName>
+    <RootNamespace>Lab_4_выполнение_</RootNamespace>
+    <AssemblyName>Lab_4%28выполнение%29</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Date.cs" />
-    <Compile Include="Lab_3.cs" />
-    <Compile Include="Production.cs" />
+    <Compile Include="ExtensionToString.cs" />
+    <Compile Include="Lab_4performance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatisticOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
