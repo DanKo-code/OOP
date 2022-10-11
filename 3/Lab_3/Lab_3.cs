@@ -86,41 +86,14 @@ namespace Lab_3
 
             public void Push_Back(int a)
            {
-                //базовый случай
-                if(!flag)
-                {
-                    flag = true;
-
-                    items[0] = a;
-
-                    return;
-                }
-
-                ////////////////////////////////Проверка на одинаковые элементы///////
-
-                for (int i = 0; i < this.items.Length; i++)
-                {
-                    if (a == this.items[i]) return;
-                }
-
-                //////////////////////////////////////////////////////////////////////
-                
-                //остальные случаи
-                int[] newArr = new int[items.Length + 1];
-
-                for (int i = 0; i < items.Length; i++)
-                {
-                    newArr[i] = items[i];
-                }
-
-                newArr[items.Length] = a;
-
-                items = newArr;
+                int[] buf = new int[items.Length + 1];
+                items.CopyTo(buf, 0);
+                buf[items.Length] = a;
+                items = buf;
            }
 
             //для добавления
-            public int[] items = {0};
-            private bool flag = false;
+            public int[] items = Array.Empty<int>();
         }
 
         static void Main()
@@ -169,8 +142,7 @@ namespace Lab_3
 
             char firstElement = str.GetFirstElement();
 
-
-            b.DeletePositiveElements(ref b);
+            b.DeletePositiveElements();
 
             Console.ReadKey();
         }
