@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1", "Lab_1.csproj", "{7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unsafe_Fixed", "..\Unsafe_Fixed\Unsafe_Fixed.csproj", "{021EA6B1-8A2C-4692-9E4E-12DD6B5E1AE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "..\TEST\TEST.csproj", "{9A678DCF-3DE8-44EB-8057-EDFFD9D46C58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{021EA6B1-8A2C-4692-9E4E-12DD6B5E1AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{021EA6B1-8A2C-4692-9E4E-12DD6B5E1AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{021EA6B1-8A2C-4692-9E4E-12DD6B5E1AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A678DCF-3DE8-44EB-8057-EDFFD9D46C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A678DCF-3DE8-44EB-8057-EDFFD9D46C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A678DCF-3DE8-44EB-8057-EDFFD9D46C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A678DCF-3DE8-44EB-8057-EDFFD9D46C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

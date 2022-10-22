@@ -6,118 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab_4performance
 {
-    public class Program
+    public partial class Program
     {
-        abstract class TvProgram
-        {
-            public abstract int Duration { get; }
-
-            public abstract string Name { get;}
-
-            public abstract void PrintFragment();
-
-            ////////////////////////////////////////////
-            ///
-            public abstract string Define { get; }
-        }
-
-        public interface Film
-        {
-            string genre { get; }
-
-            void PrintFragment();
-        }
-
-        sealed class News : TvProgram
-        {
-            public override int Duration => 20;
-
-            public override string Name => "Новости";
-
-            public override void PrintFragment()
-            {
-                Console.WriteLine($"{this.Name}: В Украине закончилась война");
-            }
-
-            public override string Define => "Начинаются новости!!!";
-
-            public override string ToString()
-            {
-                return $"Duration: {Duration}, Name: {Name}, Define: {Define}";
-            }
-        }
-
-        sealed class Advertising : TvProgram
-        {
-            public override int Duration => 1;
-
-            public override string Name => "Реклама";
-
-            public override void PrintFragment()
-            {
-                Console.WriteLine($"{this.Name}: Купите гель - он крутой");
-            }
-
-            public override string Define => "Начинаются новости!!!";
-
-            public override string ToString()
-            {
-                return $"Duration: {Duration}, Name: {Name}, Define: {Define}";
-            }
-        }
-
-        class Cartoon : TvProgram, Film
-        {
-            public override int Duration => 30;
-
-            public override string Name => "Мультик";
-
-            public override string Define => "Ура, начинается мультк!!!";
-
-            public override void PrintFragment()
-            {
-                Console.WriteLine("1 сезон, 2 серия, включаем!");
-            }
-
-            void Film.PrintFragment()
-            {
-                Console.WriteLine("Ура, мультик начинается!!!");
-            }
-
-            public string genre => "Anime";
-
-            public override string ToString()
-            {
-                return $"Duration: {Duration}, Name: {Name}, Define: {Define}, Genre: {genre}";
-            }
-        }
-
-        class HoodMovie : TvProgram, Film
-        {
-            public override int Duration => 120;
-
-            public override string Name => "Фильмец";
-
-            public override string Define => "Начинается какой-то фильм";
-
-            public override void PrintFragment()
-            {
-                Console.WriteLine(" \"название фильма\", включаем!");
-            }
-
-            void Film.PrintFragment()
-            {
-                Console.WriteLine("Ура, \"название фильма\" начинается!!!");
-            }
-
-            public string genre => "detective";
-
-            public override string ToString()
-            {
-                return $"Duration: {Duration}, Name: {Name}, Define: {Define}, Genre: {genre}";
-            }
-        }
-
         static void Main(string[] args)
         {
             //Вызвал методы с одинаковым иминем
@@ -128,11 +18,13 @@ namespace Lab_4performance
 
             ((Film)cartoon_1).PrintFragment();
 
+            if (cartoon_1 is Film test) test.PrintFragment();
+
             Console.Write("\n\n\n");
 
             //Поработал с as/is
             Console.WriteLine("Поработал с as/is");
-            TvProgram tvprogram = new News();
+            TvProgram tvprogram = new News(20);
             Foo(tvprogram);
             tvprogram = new Advertising();
             Foo(tvprogram);
@@ -140,13 +32,21 @@ namespace Lab_4performance
             Foo(tvprogram);
 
             tvprogram = null;
+            tvprogram = new HoodMovie();
             Bar(tvprogram);
 
             Console.Write("\n\n\n");
 
+            //Поработал с object.override
+            News test_over_1 = new News(20);
+            News test_over_2 = new News(30);
+
+            test_over_1.Equals(test_over_2);
+
+            Console.Write("\n\n\n");
             //Printer
             Console.WriteLine("Поработал с Printer");
-            TvProgram[] items = { new News(), new Advertising(), new Cartoon() };
+            TvProgram[] items = { new News(40), new Advertising(), new Cartoon() };
             Printer a = new Printer();
 
             a.IAmPrinting(items);
@@ -182,7 +82,6 @@ namespace Lab_4performance
                     Console.WriteLine(example[i].ToString());
                 }
             }
-        }
-        
+        }    
     }
 }

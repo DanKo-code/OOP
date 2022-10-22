@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_3
 {
-     public partial class Lab_3
+    public partial class Lab_3
     {
         public class MySet
         {
@@ -55,7 +51,7 @@ namespace Lab_3
             }
 
             public static bool operator >(MySet first, MySet second)
-           {
+            {
                 bool check = false;
 
                 for (int i = 0; i < first.items.Length; i++)
@@ -75,7 +71,7 @@ namespace Lab_3
                 }
 
                 return true;
-           }
+            }
 
             public static bool operator <(MySet first, MySet second)
             {
@@ -85,12 +81,12 @@ namespace Lab_3
             }
 
             public void Push_Back(int a)
-           {
+            {
                 int[] buf = new int[items.Length + 1];
                 items.CopyTo(buf, 0);
                 buf[items.Length] = a;
                 items = buf;
-           }
+            }
 
             //для добавления
             public int[] items = Array.Empty<int>();
@@ -99,21 +95,20 @@ namespace Lab_3
         static void Main()
         {
             MySet a = new MySet();
-            
+
             a.Push_Back(1);
             a.Push_Back(2);
             a.Push_Back(3);
             a.Push_Back(40);
-           
+
             MySet b = new MySet();
 
             b.Push_Back(1);
             b.Push_Back(2);
             b.Push_Back(3);
-            b.Push_Back(38);
             b.Push_Back(40);
-            b.Push_Back(-5);
-            b.Push_Back(-6);
+            b.Push_Back(50);
+           
 
             /////////////////////////////////////////////////////
 
@@ -122,7 +117,7 @@ namespace Lab_3
 
             MySet c = a * b;
 
-            
+
 
             var test = (Date)a;
 

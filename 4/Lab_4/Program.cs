@@ -146,43 +146,43 @@
 //    //    }
 //    //}
 
-//    //class Program
-//    //{
-//    //    static void Main()
-//    //    {
-//    //        MyClass myClass = new MyClass();
-//    //        Foo(myClass);
-//    //        Bar(myClass);
+//class Program
+//{
+//    static void Main()
+//    {
+//        MyClass myClass = new MyClass();
+//        Foo(myClass);
+//        Bar(myClass);
 
-//    //        MyOtherClass myOtherClass = new MyOtherClass();
-//    //        Foo(myOtherClass);
-//    //        Bar(myOtherClass);
+//        MyOtherClass myOtherClass = new MyOtherClass();
+//        Foo(myOtherClass);
+//        Bar(myOtherClass);
 
-//    //        First a = myOtherClass;
-//    //        a.Action();
+//        First a = myOtherClass;
+//        a.Action();
 
-//    //        ((First)myOtherClass).Action();
+//        ((First)myOtherClass).Action();
 
-//    //        object obj = new object();
-//    //        if (obj is First first)
-//    //        {
-//    //            first.Action();
-//    //        }
+//        object obj = new object();
+//        if (obj is First first)
+//        {
+//            first.Action();
+//        }
 
 
 
-//    //    }
+//    }
 
-//    //    static void Foo(First first)
-//    //    {
-//    //        first.Action();
-//    //    }
+//    static void Foo(First first)
+//    {
+//        first.Action();
+//    }
 
-//    //    static void Bar(Second second)
-//    //    {
-//    //        second.Action();
-//    //    }
-//    //}
+//    static void Bar(Second second)
+//    {
+//        second.Action();
+//    }
+//}
 
 //    //    /////////////////////////////////// явная реализация интерфейса ///////////////////////////////////////////////
 
@@ -297,89 +297,89 @@
 
 //    //    /////////////////////////////////// IS AS ///////////////////////////////////////////////
 
-//    //class Program
-//    //{
-//    //    class Point
-//    //    {
-//    //        public int X { get; set; }
-//    //        public int Y { get; set; }
+//class Program
+//{
+//    class Point
+//    {
+//        public int X { get; set; }
+//        public int Y { get; set; }
 
-//    //        public void Print()
-//    //        {
-//    //            Console.WriteLine("X:\t" + X);
-//    //            Console.WriteLine("Y:\t" + Y);
-//    //        }
-//    //    }
+//        public void Print()
+//        {
+//            Console.WriteLine("X:\t" + X);
+//            Console.WriteLine("Y:\t" + Y);
+//        }
+//    }
 
 
-//    //    static void Main(string[] args)
-//    //    {
-//    //        object obj = new Point { X = 3, Y = 5 };
+//    static void Main(string[] args)
+//    {
+//        object obj = new Point { X = 3, Y = 5 };
 
-//    //        Bar(obj);
+//        Bar(obj);
 
-//    //    }
+//    }
 
-//    //    static void Foo(object obj)
-//    //    {
-//    //        Point point = obj as Point;
+//    static void Foo(object obj)
+//    {
+//        Point point = obj as Point;
 
-//    //        if (point != null)
-//    //        {
-//    //            point.Print();
-//    //        }
-//    //    }
+//        if (point != null)
+//        {
+//            point.Print();
+//        }
+//    }
 
-//    //    static void Bar(object obj)
-//    //    {
-//    //        if (obj is Point point)
-//    //        {
-//    //            //Point point = (Point)obj;
+//    static void Bar(object obj)
+//    {
+//        if (obj is Point point)
+//        {
+//            //Point point = (Point)obj;
 
-//    //            point.Print();
-//    //        }
-//    //    }
-//    //}
+//            point.Print();
+//        }
+//    }
+//}
 
 
 //    //    /////////////////////////////////// IS AS ///////////////////////////////////////////////
 
 //    //    /////////////////////////////////// BASE ///////////////////////////////////////////////
 
-//    //class Programm
-//    //{
-//    //    class Point2D
-//    //    {
-//    //        public Point2D(int x, int y)
-//    //        {
-//    //            X = x;
-//    //            Y = y;
+//class Programm
+//{
+//    class Point2D
+//    {
+//        public Point2D(int x, int y)
+//        {
+//            X = x;
+//            Y = y;
 
-//    //            Console.WriteLine("конструктор Point2D");
-//    //        }
+//            Console.WriteLine("конструктор Point2D");
+//        }
 
-//    //        public int X { get; set; }
-//    //        public int Y { get; set; }
-//    //    }
+//        public int X { get; set; }
+//        public int Y { get; set; }
+//    }
 
-//    //    class Point3D : Point2D
-//    //    {
-//    //        public Point3D(int x, int y, int z) : base(x, y)
-//    //        {
-//    //            Z = z;
-//    //            Console.WriteLine("конструктор Point3D");
-//    //        }
+//    class Point3D : Point2D
+//    {
+//        public Point3D(int x, int y, int z) : base(x, y)
+//        {
+//            Z = z;
+//            Console.WriteLine("конструктор Point3D");
+//        }
 
 
 
-//    //        public int Z { get; set; }
-//    //    }
+//        public int Z { get; set; }
+//    }
 
-//    //    static void Main()
-//    //    {
-//    //        Point3D point3D = new Point3D(1, 2, 3);
-//    //    }
-//    //}
+//    static void Main()
+//    {
+//        Point3D point3D = new Point3D(1, 2, 3);
+//    }
+//}
 
 
 
