@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Diagnostics;
+
+
 namespace Lab_4performance
 {
     public partial class Program
@@ -37,8 +40,11 @@ namespace Lab_4performance
 
             public void Set(TvProgram newaItem , int index)
             {
+                Debug.Assert(newaItem != null, "Передаваемый объект не может указывать на null!");
+
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if (newaItem == null) throw new TestNullObject("Передан обьект с null ссылкой!");
+
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if (index <= 0 || index >= items.Length - 1) throw new WrongIndexException("Неверный индекс элемента!");
                

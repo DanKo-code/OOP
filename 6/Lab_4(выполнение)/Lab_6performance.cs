@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Diagnostics;
+
+
 namespace Lab_4performance
 {
     public partial class Program
@@ -143,9 +146,9 @@ namespace Lab_4performance
                     pg6.Push_Back(cartoon);
                     pg6.Push_Back(hoodmovie);
 
-                    //hoodmovie = null;
+                    hoodmovie = null;
                     //pg6.Push_Back(hoodmovie);
-                    //pg6.Set(hoodmovie, 0);
+                    pg6.Set(hoodmovie, 0);   // assert
 
                     //3 неверный индекс
                    //pg6.Delete(7);
@@ -153,38 +156,50 @@ namespace Lab_4performance
                     //pg6.Get(7);
 
                     //4 выход за пределы диапазона
-                    pg6.GetSameYearFilms(1000);
+                    //pg6.GetSameYearFilms(1000);
 
 
                 }
                 catch (NullCollectionException exeption)
                 {
                     Console.WriteLine(exeption.Message);
+                    Console.WriteLine(exeption.TargetSite);
+                    Console.WriteLine(exeption.StackTrace);
                     throw;
                 }
                 catch (WrongIndexException exeption)
                 {
                     Console.WriteLine(exeption.Message);
+                    Console.WriteLine(exeption.TargetSite);
+                    Console.WriteLine(exeption.StackTrace);
                     throw;
                 }
                 catch (OutOfTvProgramRange exeption)
                 {
                     Console.WriteLine(exeption.Message);
+                    Console.WriteLine(exeption.TargetSite);
+                    Console.WriteLine(exeption.StackTrace);
                     throw;
                 }
                 catch (TestNullObject exeption)
                 {
                     Console.WriteLine(exeption.Message);
+                    Console.WriteLine(exeption.TargetSite);
+                    Console.WriteLine(exeption.StackTrace);
                     throw;
                 }
             }
             catch (OverflowException exeption)
             {
                 Console.WriteLine(exeption.Message);
+                Console.WriteLine(exeption.TargetSite);
+                Console.WriteLine(exeption.StackTrace);
             }
             catch (NullReferenceException exeption)
             {
                 Console.WriteLine(exeption.Message);
+                Console.WriteLine(exeption.TargetSite);
+                Console.WriteLine(exeption.StackTrace);
             }
             catch
             {
@@ -194,6 +209,25 @@ namespace Lab_4performance
             {
                 Console.WriteLine("Тест закончился");
             }
+
+            Debugger.Launch(); //присоед отладчик
+            Debugger.IsLogging(); //Проверяет, включено ли ведение журнала для присоединенного отладчика.
+            Debugger.Break(); //точка останова
+
+
+
+            int n = 11;
+            Debug.Assert(n < 1, "Недопустимое значение"); //Проверяет условие. Если условие имеет значение false, выдается указанное сообщение и отображается окно сообщения со стеком вызовов.
+
+            int[] aa = null;
+            Debug.Assert(aa != null, "Values array cannot be null");
+
+
+            Debug.Indent(); //задает уровень отступа
+            Debug.WriteLine("Entering Main"); //Записывает имя категории и значение метода ToString() объекта в прослушиватели трассировки в коллекции Listeners.
+            Console.WriteLine("Hello World.");
+            Debug.WriteLine("Exiting Main");
+            Debug.Unindent(); 
 
             Console.ReadKey();
         }
