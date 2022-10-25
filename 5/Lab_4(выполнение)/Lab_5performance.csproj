@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Advertising.cs" />
     <Compile Include="Cartoon.cs" />
+    <Compile Include="News2.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="HoodMovie.cs" />
     <Compile Include="Lab_5performance.cs" />
