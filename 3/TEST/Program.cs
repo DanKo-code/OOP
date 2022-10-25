@@ -12,6 +12,7 @@ namespace TEST
 
         static void Main(string[] args)
         {
+            Array a;
         }
     }
 }

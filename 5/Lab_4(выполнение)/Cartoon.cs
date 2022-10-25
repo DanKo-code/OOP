@@ -32,7 +32,7 @@ namespace Lab_4performance
 
             public override string ToString()
             {
-                return $"Type: {this.GetType()}, Duration: {Duration}, Name: {Name}, Define: {Define}, Genre: {genre}";
+                return $"Type: {this.GetType()}, Duration: {Duration}, Name: {Name}, Define: {Define}, Genre: {genre}, ReleaseYear: {releaseYear}";
             }
         }
     }

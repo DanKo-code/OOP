@@ -10,50 +10,105 @@ namespace Lab_4performance
     {
         static void Main(string[] args)
         {
-            //Вызвал методы с одинаковым иминем
-            Console.WriteLine("Вызвал методы с одинаковым иминем");
-            Cartoon cartoon_1 = new Cartoon();
+            ////Вызвал методы с одинаковым иминем
+            //Console.WriteLine("Вызвал методы с одинаковым иминем");
+            //Cartoon cartoon_1 = new Cartoon();
 
-            cartoon_1.PrintFragment();
+            //cartoon_1.PrintFragment();
 
-            ((Film)cartoon_1).PrintFragment();
+            //((Film)cartoon_1).PrintFragment();
 
-            if (cartoon_1 is Film test) test.PrintFragment();
+            //if (cartoon_1 is Film test) test.PrintFragment();
 
-            Console.Write("\n\n\n");
+            //Console.Write("\n\n\n");
 
-            //Поработал с as/is
-            Console.WriteLine("Поработал с as/is");
-            TvProgram tvprogram = new News(20);
-            Foo(tvprogram);
-            tvprogram = new Advertising();
-            Foo(tvprogram);
-            tvprogram = new Cartoon();
-            Foo(tvprogram);
+            ////Поработал с as/is
+            //Console.WriteLine("Поработал с as/is");
+            //TvProgram tvprogram = new News(20);
+            //Foo(tvprogram);
+            //tvprogram = new Advertising();
+            //Foo(tvprogram);
+            //tvprogram = new Cartoon();
+            //Foo(tvprogram);
 
-            tvprogram = null;
-            tvprogram = new HoodMovie();
-            Bar(tvprogram);
+            //tvprogram = null;
+            //tvprogram = new HoodMovie();
+            //Bar(tvprogram);
 
-            Console.Write("\n\n\n");
+            //Console.Write("\n\n\n");
 
-            //Поработал с object.override
-            News test_over_1 = new News(20);
-            News test_over_2 = new News(30);
+            ////Поработал с object.override
+            //News test_over_1 = new News(20);
+            //News test_over_2 = new News(30);
 
-            test_over_1.Equals(test_over_2);
+            //test_over_1.Equals(test_over_2);
 
-            Console.Write("\n\n\n");
-            //Printer
-            Console.WriteLine("Поработал с Printer");
-            TvProgram[] items = { new News(40), new Advertising(), new Cartoon() };
-            Printer a = new Printer();
+            //Console.Write("\n\n\n");
+            ////Printer
+            //Console.WriteLine("Поработал с Printer");
+            //TvProgram[] items = { new News(40), new Advertising(), new Cartoon() };
+            //Printer a = new Printer();
 
-            a.IAmPrinting(items);
+            //a.IAmPrinting(items);
 
-            News.Print pr1;
+            //News.Print pr1;
 
-            pr1.Foo(test_over_1);
+            //pr1.Foo(test_over_1);
+
+            /////////////////////////////////////5////////////////////////////////////////////
+            ///
+
+            Advertising advertising1 = new Advertising();
+            advertising1.Duration = 1;
+
+            News news = new News(10);
+            
+            Advertising advertising2 = new Advertising();
+            advertising2.Duration = 2;
+
+            Cartoon cartoon = new Cartoon();
+            cartoon.Duration = 20;
+            cartoon.releaseYear = 1980;
+
+            Advertising advertising3 = new Advertising();
+            advertising3.Duration = 3;
+
+            HoodMovie hoodmovie = new HoodMovie();
+            hoodmovie.Duration = 180;
+            hoodmovie.releaseYear = 1980;
+
+            Advertising advertising4 = new Advertising();
+            advertising4.Duration = 1;
+
+            ProgramGuide pg = new ProgramGuide();
+
+           
+
+            pg.Push_Back(advertising1);
+            pg.Push_Back(news);
+            pg.Push_Back(advertising2);
+            pg.Push_Back(cartoon);
+            pg.Push_Back(advertising3);
+            pg.Push_Back(hoodmovie);
+            pg.Push_Back(advertising4);
+
+            var testGetSameYearFilms = pg.GetSameYearFilms(1980);
+            var programtime = pg.GetProgramTime();
+            var advertisingNumb = pg.GetAdvertisingNumb();
+
+            pg.Print();
+
+            var item = pg.Get(0);
+            pg.Set(advertising1, 1);
+
+            Console.WriteLine("\n\n");
+
+            pg.Delete(5);
+            pg.Delete(3);
+
+            pg.Print();
+
+           
 
             Console.ReadKey();
         }
