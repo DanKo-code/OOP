@@ -58,63 +58,104 @@ namespace Lab_4performance
             /////////////////////////////////////5////////////////////////////////////////////
             ///
 
-            var first = TvProgram.HostFees.Artem;
+            //Advertising advertising1 = new Advertising();
+            //advertising1.Duration = 1;
+
+            //News news = new News(10);
+
+            //Advertising advertising2 = new Advertising();
+            //advertising2.Duration = 2;
+
+            //Cartoon cartoon = new Cartoon();
+            //cartoon.Duration = 20;
+            //cartoon.releaseYear = 1980;
+
+            //Advertising advertising3 = new Advertising();
+            //advertising3.Duration = 3;
+
+            //HoodMovie hoodmovie = new HoodMovie();
+            //hoodmovie.Duration = 180;
+            //hoodmovie.releaseYear = 1980;
+
+            //Advertising advertising4 = new Advertising();
+            //advertising4.Duration = 1;
+
+            //ProgramGuide pg = new ProgramGuide();
+
+
+
+            //pg.Push_Back(advertising1);
+            //pg.Push_Back(news);
+            //pg.Push_Back(advertising2);
+            //pg.Push_Back(cartoon);
+            //pg.Push_Back(advertising3);
+            //pg.Push_Back(hoodmovie);
+            //pg.Push_Back(advertising4);
+
+            //var testGetSameYearFilms = pg.GetSameYearFilms(1980);
+            //var programtime = pg.GetProgramTime();
+            //var advertisingNumb = pg.GetAdvertisingNumb();
+
+            //pg.Print();
+
+            //var item = pg.Get(0);
+            //pg.Set(advertising1, 1);
+
+            //Console.WriteLine("\n\n");
+
+            //pg.Delete(5);
+            //pg.Delete(3);
+
+            //pg.Print();
+            //////////////////////////////////6//////////////////////////////////////////
+            ///
 
             Advertising advertising1 = new Advertising();
             advertising1.Duration = 1;
 
-            TvProgram.Print p = new TvProgram.Print();
-            p.Foo(advertising1);
-
-            ///////////////////////////////////////////////////////////////
-
             News news = new News(10);
-            
-            Advertising advertising2 = new Advertising();
-            advertising2.Duration = 2;
 
             Cartoon cartoon = new Cartoon();
             cartoon.Duration = 20;
             cartoon.releaseYear = 1980;
 
-            Advertising advertising3 = new Advertising();
-            advertising3.Duration = 3;
-
             HoodMovie hoodmovie = new HoodMovie();
             hoodmovie.Duration = 180;
             hoodmovie.releaseYear = 1980;
 
-            Advertising advertising4 = new Advertising();
-            advertising4.Duration = 1;
+            ProgramGuide pg6 = new ProgramGuide();
 
-            ProgramGuide pg = new ProgramGuide();
+            pg6.Push_Back(advertising1);
+            pg6.Push_Back(news);
+            pg6.Push_Back(cartoon);
+            pg6.Push_Back(hoodmovie);
 
-           
+            hoodmovie = null;
 
-            pg.Push_Back(advertising1);
-            pg.Push_Back(news);
-            pg.Push_Back(advertising2);
-            pg.Push_Back(cartoon);
-            pg.Push_Back(advertising3);
-            pg.Push_Back(hoodmovie);
-            pg.Push_Back(advertising4);
 
-            var testGetSameYearFilms = pg.GetSameYearFilms(1980);
-            var programtime = pg.GetProgramTime();
-            var advertisingNumb = pg.GetAdvertisingNumb();
 
-            pg.Print();
 
-            var item = pg.Get(0);
-            pg.Set(advertising1, 1);
 
-            Console.WriteLine("\n\n");
+            try
+            {
+                //1 передал нулевую ссылку
+                pg6.Push_Back(hoodmovie);
 
-            pg.Delete(5);
-            pg.Delete(3);
+                try
+                {
 
-            pg.Print();
+                }
+                catch (Exception)
+                {
 
+                    throw;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
            
 
             Console.ReadKey();

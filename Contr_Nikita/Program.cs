@@ -55,7 +55,7 @@ namespace Contr_Nikita
             Bag second = new Bag();
 
             first.Sum = 11;
-            second.Sum = 10;
+            second.Sum = 12;
 
             first.CompareTo(second);
             StatisticOperation.NullSum(second);

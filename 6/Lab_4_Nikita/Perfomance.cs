@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TEST
+namespace Lab_4_Nikita
 {
-    class Program
+    public partial class Perfomance
     {
-
-
         static void Main(string[] args)
         {
-            List<>
+
         }
     }
 }
