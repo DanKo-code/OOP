@@ -12,8 +12,11 @@ namespace Lab_4performance
         {
             public void Delete(int index)
             {
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                if (items.Length == 0) throw new NullCollectionException("ProgramGuide пуст!");
+
                 // исключение - индекс не в диапазоне [0 - items.Length]!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                if (index >= 0 && index <= items.Length-1) throw new WrongIndexException("Неверный индекс элемента");
+                if (index <= 0 || index >= items.Length-1) throw new WrongIndexException("Неверный индекс элемента");
 
                 TvProgram[] buf = new TvProgram[items.Length -1];
 
@@ -37,7 +40,7 @@ namespace Lab_4performance
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if (newaItem == null) throw new TestNullObject("Передан обьект с null ссылкой!");
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                if (index >= 0 && index <= items.Length - 1) throw new WrongIndexException("Неверный индекс элемента!");
+                if (index <= 0 || index >= items.Length - 1) throw new WrongIndexException("Неверный индекс элемента!");
                
                 items[index] = newaItem;
             }
@@ -45,7 +48,7 @@ namespace Lab_4performance
             public TvProgram Get(int index)
             {
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                if (index >= 0 && index <= items.Length - 1) throw new WrongIndexException("Неверный индекс элемента!");
+                if (index <= 0 || index >= items.Length - 1) throw new WrongIndexException("Неверный индекс элемента!");
                 return items[index];
             }
 

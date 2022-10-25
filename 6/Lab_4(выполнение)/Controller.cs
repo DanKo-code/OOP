@@ -11,7 +11,7 @@ namespace Lab_4performance
         public static Program.TvProgram[] GetSameYearFilms(this Program.ProgramGuide temp, int year)
         {
             // исключение - год не в диапазоне [1800 - 2022]!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (year >= 1800 && year <= 2022) throw new OutOfTvProgramRange("Выход за пределы года фильма!");
+            if (year <= 1800 || year >= 2022) throw new OutOfTvProgramRange("Выход за пределы года фильма!");
 
 
             Program.TvProgram[] buf = Array.Empty<Program.TvProgram>();

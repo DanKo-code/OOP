@@ -125,38 +125,75 @@ namespace Lab_4performance
 
             ProgramGuide pg6 = new ProgramGuide();
 
-            pg6.Push_Back(advertising1);
-            pg6.Push_Back(news);
-            pg6.Push_Back(cartoon);
-            pg6.Push_Back(hoodmovie);
-
-            hoodmovie = null;
-
-
 
 
 
             try
             {
-                //1 передал нулевую ссылку
-                pg6.Push_Back(hoodmovie);
-
                 try
                 {
+                    ////1 пустая коллекция
+                    //pg6.Delete(0);
+                    //pg6.Print();
+                    //pg6.GetProgramTime();
+
+                    ////2 передал нулевую ссылку
+                    pg6.Push_Back(advertising1);
+                    pg6.Push_Back(news);
+                    pg6.Push_Back(cartoon);
+                    pg6.Push_Back(hoodmovie);
+
+                    //hoodmovie = null;
+                    //pg6.Push_Back(hoodmovie);
+                    //pg6.Set(hoodmovie, 0);
+
+                    //3 неверный индекс
+                   //pg6.Delete(7);
+                    //pg6.Set(hoodmovie, 7);
+                    //pg6.Get(7);
+
+                    //4 выход за пределы диапазона
+                    pg6.GetSameYearFilms(1000);
+
 
                 }
-                catch (Exception)
+                catch (NullCollectionException exeption)
                 {
-
+                    Console.WriteLine(exeption.Message);
+                    throw;
+                }
+                catch (WrongIndexException exeption)
+                {
+                    Console.WriteLine(exeption.Message);
+                    throw;
+                }
+                catch (OutOfTvProgramRange exeption)
+                {
+                    Console.WriteLine(exeption.Message);
+                    throw;
+                }
+                catch (TestNullObject exeption)
+                {
+                    Console.WriteLine(exeption.Message);
                     throw;
                 }
             }
-            catch (Exception)
+            catch (OverflowException exeption)
             {
-
-                throw;
+                Console.WriteLine(exeption.Message);
             }
-           
+            catch (NullReferenceException exeption)
+            {
+                Console.WriteLine(exeption.Message);
+            }
+            catch
+            {
+                Console.WriteLine("Конечная обработка");
+            }
+            finally
+            {
+                Console.WriteLine("Тест закончился");
+            }
 
             Console.ReadKey();
         }
