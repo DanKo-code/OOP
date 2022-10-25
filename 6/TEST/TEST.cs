@@ -36,13 +36,24 @@ namespace TEST
 
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
-            A a = null; 
+            try
+            {
+                Main();
+            }
+            catch
+            {
+                Console.WriteLine("nikita");
+                
+            }
+           
 
-            //a = null;
+            //A a = null; 
 
-            Program.Foo(a);
+            ////a = null;
+
+            //Program.Foo(a);
 
             //a = null;
 
