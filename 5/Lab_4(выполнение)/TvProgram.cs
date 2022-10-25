@@ -19,6 +19,26 @@ namespace Lab_4performance
             ////////////////////////////////////////////
             ///
             public abstract string Define { get; }
+
+            public enum HostFees
+            {
+                Nikita = 1000,
+                Danila,
+                Artem
+            }
+
+            public struct Print
+            {
+                public void Foo(object obj)
+                {
+                    if (obj is TvProgram test)
+                    {
+                        test.PrintFragment();
+                    }
+                }
+            }
+            
+
         }
     }
 }

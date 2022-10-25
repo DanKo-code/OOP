@@ -51,6 +51,10 @@ namespace Lab_4performance
 
             a.IAmPrinting(items);
 
+            News.Print pr1;
+
+            pr1.Foo(test_over_1);
+
             Console.ReadKey();
         }
 
