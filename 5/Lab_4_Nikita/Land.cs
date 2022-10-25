@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_4performance
+namespace Lab_4_Nikita
 {
-    public partial class Program
+    public partial class Perfomance
     {
-        public interface Film
+        public interface Land
         {
-            string genre { get; }
-
-            int releaseYear { get; set; }
+            int population { get; }
 
             void PrintFragment();
         }

@@ -12,7 +12,7 @@ namespace Lab_4performance
         {
             public abstract int Duration { get; set; }
 
-            public abstract string Name { get; }
+            public virtual string Name { get; }
 
             public abstract void PrintFragment();
 

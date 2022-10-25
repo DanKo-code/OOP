@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_4performance
+namespace Lab_4_Nikita
 {
-    public partial class Program
+    public partial class Perfomance
     {
-        sealed public class News : TvProgram
+        class Sea:Water
         {
             public News(int duration)
             {

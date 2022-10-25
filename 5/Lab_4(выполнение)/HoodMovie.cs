@@ -16,6 +16,8 @@ namespace Lab_4performance
 
             public override string Define => "Начинается какой-то фильм";
 
+            public int releaseYear { get; set; }
+
             public override void PrintFragment()
             {
                 Console.WriteLine(" Трансформеры, включаем!");

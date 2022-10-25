@@ -16,6 +16,8 @@ namespace Lab_4performance
 
             public override string Define => "Ура, начинается мультк!!!";
 
+            public int releaseYear { get; set; }
+
             public override void PrintFragment()
             {
                 Console.WriteLine("1 сезон, 2 серия, включаем!");

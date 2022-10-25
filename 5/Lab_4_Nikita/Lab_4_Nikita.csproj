@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FFD3A234-9E17-4BB8-9E60-B2AEA48A08B9}</ProjectGuid>
+    <ProjectGuid>{E2304BB0-670C-4830-B242-6CACD0CAC6C7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Lab_4_выполнение_</RootNamespace>
-    <AssemblyName>Lab_4%28выполнение%29</AssemblyName>
+    <RootNamespace>Lab_4_Nikita</RootNamespace>
+    <AssemblyName>Lab_4_Nikita</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,14 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Advertising.cs" />
-    <Compile Include="Cartoon.cs" />
-    <Compile Include="Film.cs" />
-    <Compile Include="HoodMovie.cs" />
-    <Compile Include="Lab_5_performance.cs" />
-    <Compile Include="News.cs" />
+    <Compile Include="Land.cs" />
+    <Compile Include="Perfomance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TvProgram.cs" />
+    <Compile Include="Sea.cs" />
+    <Compile Include="Water.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_5", "Lab_5.csproj", "{3016CAE7-0FCB-48F8-BF7F-63A20D43A39F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_5_performance", "..\Lab_4(выполнение)\Lab_5_performance.csproj", "{FFD3A234-9E17-4BB8-9E60-B2AEA48A08B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_5performance", "..\Lab_4(выполнение)\Lab_5performance.csproj", "{FFD3A234-9E17-4BB8-9E60-B2AEA48A08B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "..\TEST\TEST.csproj", "{EA500D45-BF85-4116-B917-49F0C08B8AAE}"
 EndProject
