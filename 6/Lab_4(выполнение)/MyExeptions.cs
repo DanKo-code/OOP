@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_4performance
+namespace Lab_6performance
 {
     public class NullCollectionException : Exception
     {

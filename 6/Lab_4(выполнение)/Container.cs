@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 
-namespace Lab_4performance
+namespace Lab_6performance
 {
     public partial class Program
     {

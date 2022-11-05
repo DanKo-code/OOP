@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 
-namespace Lab_4performance
+namespace Lab_6performance
 {
     public partial class Program
     {
@@ -212,7 +212,10 @@ namespace Lab_4performance
 
             //Debugger.Launch(); //присоед отладчик
             //Debugger.IsLogging(); //Проверяет, включено ли ведение журнала для присоединенного отладчика.
-            Debugger.Break(); //точка останова
+
+
+
+            //Debugger.Break(); //точка останова//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
