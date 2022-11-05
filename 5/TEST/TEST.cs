@@ -9,13 +9,17 @@ namespace TEST
     
     class Program5
     {
-        
+        class A
+        {
+            int a = 0;
+            int b = 1;
+        }
+
 
         static void Main(string[] args)
         {
-            int b = 0;
 
-            int a = 1 / b;
+
         }
     }
 }

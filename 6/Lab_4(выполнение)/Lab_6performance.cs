@@ -148,7 +148,7 @@ namespace Lab_4performance
 
                     hoodmovie = null;
                     //pg6.Push_Back(hoodmovie);
-                    pg6.Set(hoodmovie, 0);   // assert
+                    //pg6.Set(hoodmovie, 0);   // assert
 
                     //3 неверный индекс
                    //pg6.Delete(7);
@@ -212,7 +212,7 @@ namespace Lab_4performance
 
             //Debugger.Launch(); //присоед отладчик
             //Debugger.IsLogging(); //Проверяет, включено ли ведение журнала для присоединенного отладчика.
-            //Debugger.Break(); //точка останова
+            Debugger.Break(); //точка останова
 
 
 
@@ -230,6 +230,7 @@ namespace Lab_4performance
             //Debug.Unindent(); 
 
             //Debug.Fail("nikita");
+            Debug.WriteLine("Entering Main");
 
 
             Console.ReadKey();

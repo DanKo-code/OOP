@@ -77,6 +77,10 @@ namespace Lab_4performance
             cartoon.Duration = 20;
             cartoon.releaseYear = 1980;
 
+            Cartoon cartoon2 = new Cartoon();
+            cartoon2.Duration = 20;
+            cartoon2.releaseYear = 1981;
+
             Advertising advertising3 = new Advertising();
             advertising3.Duration = 3;
 
@@ -95,6 +99,7 @@ namespace Lab_4performance
             pg.Push_Back(news);
             pg.Push_Back(advertising2);
             pg.Push_Back(cartoon);
+            pg.Push_Back(cartoon2);
             pg.Push_Back(advertising3);
             pg.Push_Back(hoodmovie);
             pg.Push_Back(advertising4);
