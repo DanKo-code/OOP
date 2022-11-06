@@ -60,20 +60,17 @@ namespace TEST
             }
         }
 
+        class Gen<T,G>
+        {
+            G ob;
+            T bo;
+            public Gen(G o) { ob = o; }
+            public T GetOb() { return bo; }
+        }
+
         static void Main(string[] args)
         {
-            List<Car> Garage = CreateGarage();
-            Console.WriteLine("-------- 1 способ -------------");
-            foreach (Car item in GetBrokenCars(Garage))
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("-------- 2 способ --------------");
-            foreach (Car item in Garage.FindAll(FoundCar))
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("--------------------------------");
+            Gen<int,double> test = new Program.Gen(1, 1.2);
         }
     }
 }

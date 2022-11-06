@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Lab_3">
+      <HintPath>..\..\Lab_7_2019\Lab_3\bin\Release\Lab_3.exe</HintPath>
+    </Reference>
+    <Reference Include="Lab_4%28выполнение%29">
+      <HintPath>..\..\..\6\Lab_4(выполнение)\bin\Release\Lab_4(выполнение).exe</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

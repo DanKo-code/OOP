@@ -75,14 +75,6 @@ namespace Lab_3
                 return false;
             }
 
-            //public void Add(T a)
-            //{
-            //    T[] buf = new T[items.Length + 1];
-            //    items.CopyTo(buf, 0);
-            //    buf[items.Length] = a;
-            //    items = buf;
-            //}
-
             public void Push_Back(T a)
             {
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -130,12 +122,19 @@ namespace Lab_3
                 }
             }
 
+            ////////////////////////////////////////////////////////////////////////
+
+            //public MySet(T[] example){}
+                
+
             //для добавления
             public T[] items = Array.Empty<T>();
         }
 
         static void Main()
         {
+            
+
             try
             {
                 MySet<int> a = new MySet<int>();
@@ -153,6 +152,15 @@ namespace Lab_3
                 b.Push_Back(40);
                 b.Push_Back(50);
 
+                MySet<int>[] temp = new MySet<int>[2];
+
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    temp[i] = new MySet<int>();
+                }
+
+                temp[0].Push_Back(1);
+
                 /////////////////////////////////////////////////////
 
                 Console.WriteLine(a > b);
@@ -163,12 +171,31 @@ namespace Lab_3
                 /////////////////////////////////////////////////////
                 ///
 
-                b.Delete(10);
+                //b.Delete(10);
 
+                //MySet<Lab_6performance.Program.News> d = new MySet<Lab_6performance.Program.News>();
                 MySet<Lab_6performance.Program.News> d = new MySet<Lab_6performance.Program.News>();
-
                 d.Push_Back(new Program.News(10));
+                d.Push_Back(new Program.News(11));
+                d.Push_Back(new Program.News(12));
 
+
+                MySet<Lab_6performance.Program.News> e = new MySet<Lab_6performance.Program.News>();
+                e.Push_Back(new Program.News(10));
+                e.Push_Back(new Program.News(11));
+                e.Push_Back(new Program.News(12));
+                e.Push_Back(new Program.News(13));
+
+
+                Console.WriteLine(d > e);
+                Console.WriteLine(d < e);
+
+                MySet<Lab_6performance.Program.News> c2 = d * e;
+
+                ////////////////////////////Работа с файлами///////////////////////////////
+                ///
+
+               
 
             }
             catch (Exception exeption)
