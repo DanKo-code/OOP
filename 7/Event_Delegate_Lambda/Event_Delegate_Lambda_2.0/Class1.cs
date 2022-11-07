@@ -54,31 +54,37 @@ namespace lab08
         }
     }
 
-    //class StringEditor
-    //{
-    //    public static string RemovePunctuation(string str)
-    //    {
-    //        return Regex.Replace(str, "[.,;:]", string.Empty);
-    //    }
+    class StringEditor
+    {
+        public static string RemovePunctuation(string str)
+        {
+            return Regex.Replace(str, "[.,;:]", string.Empty);
+        }
 
-    //    public static string AddSymbol(string str)
-    //    {
-    //        return str += "Lab08";
-    //    }
+        public static string AddSymbol(string str)
+        {
+            return str += "Lab08";
+        }
 
-    //    public static string ToUpper(string str)
-    //    {
-    //        return str.ToUpper();
-    //    }
+        public static string ToUpper(string str)
+        {
+            return str.ToUpper();
+        }
 
-    //    public static string ToLower(string str)
-    //    {
-    //        return str.ToLower();
-    //    }
+        public static string ToLower(string str)
+        {
+            return str.ToLower();
+        }
 
-    //    public static string RemoveSpace(string str)
-    //    {
-    //        return str.Replace(" ", string.Empty);
-    //    }
-    //}
+        public static string RemoveSpace(string str)
+        {
+            return str.Replace(" ", string.Empty);
+        }
+
+        public static void DoOperation(int a, int b, Action<int, int> op) => op(a, b);
+
+        public static Predicate<int> IsEmpty = (int x) => x == 0;
+
+
+    }
 }

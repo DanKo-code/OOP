@@ -31,19 +31,29 @@ namespace lab08
             DANILA.Reestablish(kamaz);
 
 
-            //Func<string, string> A;
-            //string str = "Nikita; .Danila, Artem; Ivan";
-            //Console.WriteLine($"\n\nСтрока: {str}");
-            //A = StringEditor.RemovePunctuation;
-            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            //A = StringEditor.AddSymbol;
-            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            //A = StringEditor.ToUpper;
-            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            //A = StringEditor.ToLower;
-            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            //A = StringEditor.RemoveSpace;
-            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
+            // Func
+            Func<string, string> A1;
+            string str1 = "Nikita; .Danila, Artem; Ivan";
+            Console.WriteLine($"\n\nСтрока: {str1}");
+            A1 = StringEditor.RemovePunctuation;
+            Console.WriteLine($"{A1.Method.Name}: {A1(str1)}");
+            A1 = StringEditor.AddSymbol;
+            Console.WriteLine($"{A1.Method.Name}: {A1(str1)}");
+            A1 = StringEditor.ToUpper;
+            Console.WriteLine($"{A1.Method.Name}: {A1(str1)}");
+            A1 = StringEditor.ToLower;
+            Console.WriteLine($"{A1.Method.Name}: {A1(str1)}");
+            A1 = StringEditor.RemoveSpace;
+            Console.WriteLine($"{A1.Method.Name}: {A1(str1)}");
+
+            // Action
+            void Add(int x, int y) => Console.WriteLine($"{x} + {y} = {x + y}");
+            StringEditor.DoOperation(1, 2, Add);
+
+            // Predicate
+            string str2 = "";
+            StringEditor.IsEmpty(str2.Length);
+
 
             Console.ReadKey();
         }
