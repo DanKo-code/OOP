@@ -70,7 +70,7 @@ namespace TEST
 
         static void Main(string[] args)
         {
-            Gen<int,double> test = new Program.Gen(1, 1.2);
+            Gen<int,double> test = new Gen<int, double>();
         }
     }
 }
