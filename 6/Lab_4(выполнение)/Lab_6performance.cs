@@ -148,7 +148,7 @@ namespace Lab_6performance
 
                     hoodmovie = null;
                     //pg6.Push_Back(hoodmovie);
-                    //pg6.Set(hoodmovie, 0);   // assert
+                    pg6.Set(hoodmovie, 0);   // assert
 
                     //3 неверный индекс
                    //pg6.Delete(7);

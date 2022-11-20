@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace Lab_8_Delegates_Events_LambdaExpressions
 {
@@ -160,59 +161,77 @@ namespace Lab_8_Delegates_Events_LambdaExpressions
             }
         }
 
+        delegate void TEST();
+        static event TEST? AAA;
+
+        static void Foo() { Console.WriteLine("Foo"); }
+        static void Foo1() { Console.WriteLine("Foo1"); }
+
+        delegate void Message();
+
         static void Main(string[] args)
         {
-            Programmer.LANG Language;
-            Programmer programmer = new Programmer();
-            List<string> LP = new List<string> { "Ruby", "C#", "Kotlin", "Pascal", "Python", "GoLang", "VisualBasic", "Dart", "JS", "Java" };
 
-            Console.Write("Список: ");
-            foreach (string item in LP)
-            {
-                Console.Write(item + "   ");
-            }
-            Console.WriteLine();
+            var hello = (int a, int b) => a+b ;
 
-            programmer.Delete += list =>
-            {
-                Console.Write("Измененный: ");
-                foreach (string item in LP)
-                {
-                    Console.Write(item + "   ");
-                }
-                Console.WriteLine();
-            };
+            Console.WriteLine(hello(1, 2)); 
 
-            programmer.Mutate += list =>
-            {
-                Console.Write("Перестановка: ");
-                foreach (string item in LP)
-                {
-                    Console.Write(item + "   ");
-                }
-                Console.WriteLine();
-            };
+            AAA = Foo;
+            AAA += Foo1;
 
-            Language = programmer.dele;
-            Language += programmer.Perenos;
-            Language += programmer.Perenos;
-            Language += programmer.Perenos;
+            AAA?.Invoke();
 
-            Language(LP);
+            //Programmer.LANG Language;
+            //Programmer programmer = new Programmer();
+            //List<string> LP = new List<string> { "Ruby", "C#", "Kotlin", "Pascal", "Python", "GoLang", "VisualBasic", "Dart", "JS", "Java" };
 
-            Func<string, string> A;
-            string str = "Nikita; Karebo. made, this; str";
-            Console.WriteLine($"\n\nСтрока: {str}");
-            A = StringEditor.RemovePunctuation;
-            Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            A = StringEditor.AddSymbol;
-            Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            A = StringEditor.ToUpper;
-            Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            A = StringEditor.ToLower;
-            Console.WriteLine($"{A.Method.Name}: {A(str)}");
-            A = StringEditor.RemoveSpace;
-            Console.WriteLine($"{A.Method.Name}: {A(str)}");
+            //Console.Write("Список: ");
+            //foreach (string item in LP)
+            //{
+            //    Console.Write(item + "   ");
+            //}
+            //Console.WriteLine();
+
+            //programmer.Delete += list =>
+            //{
+            //    Console.Write("Измененный: ");
+            //    foreach (string item in LP)
+            //    {
+            //        Console.Write(item + "   ");
+            //    }
+            //    Console.WriteLine();
+            //};
+
+            //programmer.Mutate += list =>
+            //{
+            //    Console.Write("Перестановка: ");
+            //    foreach (string item in LP)
+            //    {
+            //        Console.Write(item + "   ");
+            //    }
+            //    Console.WriteLine();
+            //};
+
+            //Language = programmer.dele;
+            //Language += programmer.Perenos;
+            //Language += programmer.Perenos;
+            //Language += programmer.Perenos;
+
+            //Language(LP);
+
+            //Func<string, string> A;
+            //string str = "Nikita; Karebo. made, this; str";
+            //Console.WriteLine($"\n\nСтрока: {str}");
+            //A = StringEditor.RemovePunctuation;
+            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
+            //A = StringEditor.AddSymbol;
+            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
+            //A = StringEditor.ToUpper;
+            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
+            //A = StringEditor.ToLower;
+            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
+            //A = StringEditor.RemoveSpace;
+            //Console.WriteLine($"{A.Method.Name}: {A(str)}");
 
 
             // 8 example delegate as argument

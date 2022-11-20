@@ -8,8 +8,58 @@ namespace Lab_4performance
 {
     public partial class Program
     {
+        class Person
+        {
+            int age = 1;
+            public virtual int Age
+            {
+                get => age;
+                set { if (value > 0 && value < 110) age = value; }
+            }
+            public string Name { get; set; }
+            public Person(string name)
+            {
+                Name = name;
+            }
+            public virtual void Print() => Console.WriteLine(Name);
+        }
+
+        //class Employee : Person
+        //{
+        //    public string Company { get; set; }
+
+        //    public Employee(string name, string company)
+        //                : base(name)
+        //    {
+        //        Company = company;
+        //    }
+
+        //    public override sealed void Print()
+        //    {
+        //        Console.WriteLine($"{Name} работает в {Company}");
+        //    }
+        //}
+
+        //class Employee1 : Employee
+        //{
+            
+
+        //    public Employee1(string name, string company)
+        //                : base(name, company)
+        //    {
+                
+        //    }
+
+        //    public override void Print()
+        //    {
+        //        Console.WriteLine($"{Name}");
+        //    }
+        //}
+
         static void Main(string[] args)
         {
+            //Employee1 employee1 = new Employee1("1","2");
+
             ////Вызвал методы с одинаковым иминем
             //Console.WriteLine("Вызвал методы с одинаковым иминем");
             //Cartoon cartoon_1 = new Cartoon();

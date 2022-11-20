@@ -50,12 +50,12 @@ namespace Lab_7_2022
 
         static void Main()
         {
-            MySet<int> a = new MySet<int>();
+            MySet<string> a = new MySet<string>();
 
-            a.Push_Back(1);
-            a.Push_Back(2);
-            a.Push_Back(3);
-            a.Push_Back(40);
+            a.Push_Back("1");
+            a.Push_Back("2");
+            a.Push_Back("3");
+            a.Push_Back("4");
 
             //for (int i = 0; i < a.items.Length; i++)
             //{
@@ -80,7 +80,7 @@ namespace Lab_7_2022
             d.Push_Back(new Lab_6performance.Program.News(11));
             d.Push_Back(new Lab_6performance.Program.News(12));
 
-            SerializeMySet<string>(b);
+            SerializeMySet<string>(a,b);
 
             var res = DeSerializeMySet<string>("SerializeMySet.txt");
         }

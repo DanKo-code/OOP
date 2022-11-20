@@ -22,7 +22,7 @@ namespace Lab_4performance
 
             public enum HostFees
             {
-                Nikita = 1000,
+                Nikita = 100,
                 Danila,
                 Artem
             }

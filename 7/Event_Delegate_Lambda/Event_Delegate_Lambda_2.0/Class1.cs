@@ -35,8 +35,8 @@ namespace lab08
     {
 
         public delegate void StateHandler();
-        public event StateHandler Upgrade;
-        public event StateHandler TurnOn;
+        public event StateHandler? Upgrade;
+        public event StateHandler? TurnOn;
 
         public void Use(workUnit unit)
         {
