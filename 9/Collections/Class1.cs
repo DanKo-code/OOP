@@ -89,7 +89,7 @@ namespace lab10
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return list.GetEnumerator();
         }
 
         public int Find(T item)

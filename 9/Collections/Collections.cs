@@ -14,14 +14,77 @@ namespace Lab10
 {
     class Collections
     {
+
+
+        //class Week
+        //{
+        //    string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday",
+        //                 "Friday", "Saturday", "Sunday" };
+        //    public IEnumerator GetEnumerator() => days.GetEnumerator();
+        //}
+
+        //class WeekEnumerator : IEnumerator
+        //{
+        //    string[] days;
+        //    int position = -1;
+        //    public WeekEnumerator(string[] days) => this.days = days;
+        //    public object Current
+        //    {
+        //        get
+        //        {
+        //            if (position == -1 || position >= days.Length)
+        //                throw new ArgumentException();
+        //            return days[position];
+        //        }
+        //    }
+        //    public bool MoveNext()
+        //    {
+        //        if (position < days.Length - 1)
+        //        {
+        //            position++;
+        //            return true;
+        //        }
+        //        else
+        //            return false;
+        //    }
+        //    public void Reset() => position = -1;
+        //}
+
+        //class Week
+        //{
+        //    string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday",
+        //                    "Friday", "Saturday", "Sunday" };
+        //    public IEnumerator GetEnumerator() => new WeekEnumerator(days);
+        //}
+
         static void Main(string[] args)
         {
+            //Week week = new Week();
+            //foreach (var day in week)
+            //{
+            //    Console.WriteLine(day);
+            //}
+
+            /////////////////////////////////////////////////////////////////////
+
+            //string[] people = { "Tom", "Sam", "Bob" };
+
+            //IEnumerator peopleEnumerator = people.GetEnumerator(); // получаем IEnumerator
+            //while (peopleEnumerator.MoveNext())   // пока не будет возвращено false
+            //{
+            //    string item = (string)peopleEnumerator.Current; // получаем элемент на текущей позиции
+            //    Console.WriteLine(item);
+            //}
+            //peopleEnumerator.Reset(); // сбрасываем указатель в начало массива
+
             Furniture chair = new Furniture("chair");
             Furniture table = new Furniture("table");
 
             MyCollection <Furniture> store = new MyCollection<Furniture>();
             store.Add(chair);
             store.Add(table);
+            //store.Add(table);
+            //store.Add(table);
 
             store.Remove(table);
 
@@ -36,6 +99,7 @@ namespace Lab10
             arrayList.Add('a');
             arrayList.Add(1.23);
             arrayList.Add("nikita");
+            //arrayList.IndexOf("nikita");
 
             arrayList.RemoveRange(1, 2);
 
