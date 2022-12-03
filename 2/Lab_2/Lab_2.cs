@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab_2
 {
-    class Lab_2
+    public class Lab_2
     {
-       public partial class  Phone
+       public partial class Phone
        {
             //Constructors
             public Phone(string firstName, string secondName, string patronymic, int creditCardNumber, int CityTalkTime, int longDistanceCallTime)
@@ -201,7 +201,7 @@ namespace Lab_2
             static int countOfUsers;
         }
 
-        static void Main()
+        static void Main(string[] args)
         {
             Phone test_1 = new Phone("Nikita", "Iluin", "SerGeyevich",567098, 100, 100);
             Phone test_2 = new Phone();
