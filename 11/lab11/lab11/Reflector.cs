@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
+using System.Collections;
 
 namespace lab11
 {
@@ -17,17 +18,6 @@ namespace lab11
 
         public static bool HasPublicConstructors(Type testedClass)
         {
-            /*
-            foreach (var item in testedclass.getconstructors())
-            {
-                if (item.ispublic)
-                {
-                    return true;
-                }
-            }
-            return false;
-            */
-
             if (testedClass.GetConstructors(BindingFlags.Instance | BindingFlags.Public).Length != 0) return true;
             return false;
         }
@@ -79,62 +69,78 @@ namespace lab11
                                                    BindingFlags.Static |
                                                    BindingFlags.Instance))
             {
-                Console.WriteLine(method);
+                Console.WriteLine(method); // убрать!
 
                 foreach (var parameter in method.GetParameters())
                 {
-                    Console.WriteLine(parameter);
+                    Console.WriteLine(parameter); // убрать!
 
                     if (parameter.ParameterType.Name == param)
                     {
-                        Console.WriteLine(method);
+                        Console.WriteLine(method); // убрать!
                         sw.WriteLine(method);
                     }
                 }
             }
         }
-        public static void Invoke(string name, string methodName)
+        public static object[] GetParametersFromFile(Type testedClass, string methodName, string FileName)
+        {
+            object[] strFile = File.ReadAllLines(FileName);
+
+            MethodInfo method = testedClass.GetMethod(methodName);
+
+            ArrayList buff = new ArrayList();
+
+            int i = 0;
+            foreach (var parameter in method.GetParameters())
+            {
+                buff.Add(Convert.ChangeType(strFile[i++], parameter.ParameterType));
+            }
+
+            return buff.ToArray();
+        }
+
+        public static object[] GetRandomParameters(Type testedClass, string methodName)
+        {
+            MethodInfo method = testedClass.GetMethod(methodName);
+
+            ArrayList buff = new ArrayList();
+
+            Random random = new Random();
+
+            foreach (var parameter in method.GetParameters())
+            {
+                byte[] b = new byte[1];
+
+                random.NextBytes(b);
+
+                buff.Add(Convert.ChangeType(b[0], parameter.ParameterType));
+            }
+
+            return buff.ToArray();
+        }
+
+        public static void Invoke(Type testedClass, object typeInstance, string methodName, object[] methodParams)
         {
             try
             {
-                Type type = Type.GetType(name, false, true);
-                object obj = Activator.CreateInstance(type);
-
-                string[] str = File.ReadAllLines(@"Invoke.txt");
-                List<string> app = new List<string>();
-                Random random = new Random();
-
-                if (str.Length == 0)
-                {
-                    if (type.Name == "Product")
-                    {
-                        str = new string[3];
-                        string temp;
-                        for (int i = 0; i < 3; i++)
-                        {
-                            int j = random.Next(10);
-                            temp = $"Preduct{j}";
-                            str[i] = temp;
-
-                        }
-                    }
-                }
-                foreach (var temp in str)
-                {
-                    app.Add(temp);
-                }
-                List<string>[] list = new List<string>[] { app };
-                MethodInfo method = type.GetMethod(methodName);
-                method.Invoke(obj, list);
+                MethodInfo method = testedClass.GetMethod(methodName);
+                method.Invoke(typeInstance, methodParams);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-        public static object Create(string name)
+
+        public static object CreateObject(Type testedClass, object[] parameters)
         {
-            return Activator.CreateInstance(Type.GetType(name));
+            return Activator.CreateInstance(testedClass, parameters);
+        }
+
+        public static object CreateObject(Type testedClass)
+        {
+            return Activator.CreateInstance(testedClass);
         }
     }
 }

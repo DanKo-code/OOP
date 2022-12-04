@@ -132,7 +132,7 @@ namespace OOP
             }
 #endif
 
-#if Converting_STR
+#if !Converting_STR
             string str1 = "Nikita";
             string str2 = "is";
             string str3 = "groot";

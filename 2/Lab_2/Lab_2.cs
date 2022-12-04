@@ -47,6 +47,12 @@ namespace Lab_2
                 countOfUsers = 0;
             }
 
+            public void ChangeFirstSecondName(string NewfirstName, string NewSecondName)
+            {
+                this.firstName = NewfirstName;
+                this.secondName = NewSecondName;
+            }
+
             //Private constructor
             private Phone(int a)
             {
@@ -114,7 +120,7 @@ namespace Lab_2
             public int GetSetlongDistanceCallTime
             {
                 get { return longDistanceCallTime; }
-                private set { longDistanceCallTime = value; }
+                set { longDistanceCallTime = value; }
             }
 
             // ref, out + count of balance
