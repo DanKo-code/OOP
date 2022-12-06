@@ -22,8 +22,12 @@ namespace lab11
             int a;
         }
 
+        
+
         static void Main(string[] args)
         {
+            
+
             Assembly testedAssmbly = Assembly.LoadFrom("C:\\2курс, 1 сем\\ООП\\2\\Lab_2\\bin\\Release\\Lab_2.exe");
 
             Type? testedClass = testedAssmbly.GetType("Lab_2.Lab_2+Phone");

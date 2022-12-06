@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<people>
+  <man name="Danila">
+    <speciality>POIT</speciality>
+    <weight>80kg</weight>
+  </man>
+  <man name="Nikita">
+    <speciality>POIBMS</speciality>
+    <weight>100kg</weight>
+  </man>
+  <person name="Sam">
+    <company>JetBrains</company>
+    <age>28</age>
+  </person>
+</people>

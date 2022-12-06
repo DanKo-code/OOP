@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Emit;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LINQ
 {
@@ -78,9 +79,14 @@ namespace LINQ
                             .Where(x => x.GetSetSecondName.Length > 5)
                             .Skip(1)
                             .OrderBy(x => x.GetSetCreditCardNumber)
+                            .Select(x => new
+                            {
+                                FirstName = x.GetSetFirstName,
+                                Card = x.GetSetCreditCardNumber
+                            })
                             //.Any(x => x.GetSetCreditCardNumber > 0);
                             //.GroupBy(x => x.GetSetCityTalkTime);
-                            .Max(x => x.GetSetlongDistanceCallTime);
+                            .Max(x => x.Card);
 
 
             Console.WriteLine("\"------ сведения об абонентах, у которых время внутригородских разговоров превышает заданное ---------\"");
