@@ -66,7 +66,7 @@ namespace Kontrosha
             user.TurnOn += first_button.Ipressed;
             user.TurnOn += second_button.Ipressed;
 
-            user.Press();
+            user.Press(); 
         }
 
         class User

@@ -15,6 +15,8 @@ namespace DeSerialisation
 {
     class Serializer
     {
+        
+
         public static string path = Path.GetFullPath(@"C:\2курс, 1 сем\ООП\13\DeSerialisation\");
 
 
