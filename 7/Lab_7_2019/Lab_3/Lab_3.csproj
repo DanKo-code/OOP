@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Lab_4%28выполнение%29">
-      <HintPath>..\..\..\6\Lab_4(выполнение)\bin\Release\Lab_4(выполнение).exe</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
