@@ -15,6 +15,7 @@ namespace TPL
             Console.WriteLine("1111111111111111111111111111112222222222222222222222222222222222222222222");
             Task task1 = new Task(() => ErSieve(300), tokenSource.Token);
             Console.WriteLine($"Task ID:              {task1.Id}");
+            Console.WriteLine($"the task is completed ?: {task1.IsCompleted}");
             Console.WriteLine($"Status when created:  {task1.Status}");
             task1.Start();
             Console.WriteLine($"Status when started:  {task1.Status}\n");
@@ -80,21 +81,25 @@ namespace TPL
             List<int> list = new List<int>();
 
             Console.WriteLine("Foreach\n");
-            stopWatch.Start();
+
             for (int i = 0; i < 100000; i++)
             {
                 list.Add(i);
             }
+
+            Console.WriteLine("Parallel cycle:\n");
+
+            stopWatch.Restart();
+            Parallel.ForEach<int>(list, Factorial);
             stopWatch.Stop();
 
 
-            Console.WriteLine("Parallel cycle:\n");
-            ParallelLoopResult result = Parallel.ForEach<int>(list, Factorial);
+
             Console.WriteLine(stopWatch.ElapsedMilliseconds);
 
 
             Console.WriteLine("\nDefault cycle:\n");
-            stopWatch.Start();
+            stopWatch.Restart();
             foreach (long l in list)
             {
                 long result1 = 1;
@@ -105,7 +110,7 @@ namespace TPL
             Console.WriteLine(stopWatch.ElapsedMilliseconds);
 
             Console.WriteLine("\n\nFor\n");
-            stopWatch.Start();
+            stopWatch.Restart();
 
             Parallel.For(1, 100000, Factorial);
 
@@ -138,15 +143,17 @@ namespace TPL
 
             Console.WriteLine("\n777777777777777777777777777777777777777777777777777777777777777777777777777777777");
 
+            CancellationTokenSource tokenSource_2 = new CancellationTokenSource();
+
             BlockingCollection<string> bc = new BlockingCollection<string>(5);
 
             Task[] sellers = new Task[5]
             {
-                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Стул"); } }),
-                new Task (()=>{while (true) { Thread.Sleep(2000); bc.Add("Шкаф"); } }),
-                new Task (()=>{while (true) { Thread.Sleep(3000); bc.Add("Кирпич"); } }),
-                new Task (()=>{while (true) { Thread.Sleep(4000); bc.Add("Никита"); } }),
-                new Task (()=>{while (true) { Thread.Sleep(5000); bc.Add("Телевизор"); } }),
+                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Стул");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Шкаф");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Кирпич");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Никита");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Телевизор горизонт");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
             };
 
             Task[] consumers = new Task[10]
@@ -165,15 +172,15 @@ namespace TPL
                 }),
 
 
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } }),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); } })
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token)
             };
 
             foreach (var item in sellers)
@@ -184,7 +191,7 @@ namespace TPL
                 if (item.Status != TaskStatus.Running)
                     item.Start();
 
-            CancellationTokenSource tokenSource_2 = new CancellationTokenSource();
+            
 
 
 
@@ -220,7 +227,7 @@ namespace TPL
 
             if ("7" == Console.ReadLine()) tokenSource_2.Cancel();
 
-
+            task7.Wait();
 
             Console.WriteLine("\n8888888888888888888888888888888888888888888888888888888888888888888888888888888888");
 
@@ -284,6 +291,9 @@ namespace TPL
                     }
                     catch
                     {
+                        stopWatch.Stop();
+
+                        Console.WriteLine("\nTotal runtime in Milliseconds:        " + stopWatch.ElapsedMilliseconds);
                         Console.WriteLine("\nThe process was cenceled.");
 
                         return;
@@ -294,9 +304,8 @@ namespace TPL
             Console.WriteLine();
 
             stopWatch.Stop();
-            long elapsedTime = stopWatch.ElapsedMilliseconds;                                     
-                
-            Console.WriteLine("\nTotal runtime in Milliseconds:        " + elapsedTime);
+                                                
+            Console.WriteLine("\nTotal runtime in Milliseconds:        " + stopWatch.ElapsedMilliseconds);
         }
 
         public static int Sum(int a, int b)
