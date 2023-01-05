@@ -13,17 +13,30 @@ namespace TPL
         static void Main(string[] args)
         {
             Console.WriteLine("1111111111111111111111111111112222222222222222222222222222222222222222222");
-            Task task1 = new Task(() => ErSieve(300), tokenSource.Token);
+
+            Task task1 = new Task(() => ErSieve(30000000), tokenSource.Token);
             Console.WriteLine($"Task ID:              {task1.Id}");
             Console.WriteLine($"the task is completed ?: {task1.IsCompleted}");
             Console.WriteLine($"Status when created:  {task1.Status}");
             task1.Start();
+            Console.WriteLine($"Status when started:  {task1.Status}\n");
             Console.WriteLine($"Status when started:  {task1.Status}\n");
 
             if ("1" == Console.ReadLine()) tokenSource.Cancel();
 
             task1.Wait();
             Console.WriteLine($"Status when ended:    {task1.Status}");
+
+
+            //Stopwatch check_1 = new Stopwatch();
+            //check_1.Start();1
+            //ErSieve(30000000);
+            //check_1.Stop();
+            //Console.WriteLine($"Последовательное! {check_1.ElapsedMilliseconds}");
+
+
+
+
 
             Console.WriteLine("\n\n333333333333333333333333344444444444444444444444444444444444444444444");
 
@@ -87,7 +100,7 @@ namespace TPL
                 list.Add(i);
             }
 
-            Console.WriteLine("Parallel cycle:\n");
+            Console.WriteLine("Parallel ForEach:\n");
 
             stopWatch.Restart();
             Parallel.ForEach<int>(list, Factorial);
@@ -98,13 +111,11 @@ namespace TPL
             Console.WriteLine(stopWatch.ElapsedMilliseconds);
 
 
-            Console.WriteLine("\nDefault cycle:\n");
+            Console.WriteLine("\nDefault ForEach:\n");
             stopWatch.Restart();
-            foreach (long l in list)
+            foreach (int l in list)
             {
-                long result1 = 1;
-                for (int i = 1; i <= l; i++)
-                    result1 *= i;
+                Factorial(l);
             }
             stopWatch.Stop();
             Console.WriteLine(stopWatch.ElapsedMilliseconds);
@@ -150,10 +161,10 @@ namespace TPL
             Task[] sellers = new Task[5]
             {
                 new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Стул");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Шкаф");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Кирпич");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Никита");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task (()=>{while (true) { Thread.Sleep(1000); bc.Add("Телевизор горизонт");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(2000); bc.Add("Шкаф");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(3000); bc.Add("Кирпич");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(4000); bc.Add("Никита");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task (()=>{while (true) { Thread.Sleep(5000); bc.Add("Телевизор горизонт");if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
             };
 
             Task[] consumers = new Task[10]
@@ -172,15 +183,15 @@ namespace TPL
                 }),
 
 
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
-                new Task(() => { while(true){ Thread.Sleep(6000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token)
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token),
+                new Task(() => { while(true){ Thread.Sleep(5000);   bc.Take(); if(tokenSource_2.Token.IsCancellationRequested) return;} }, tokenSource_2.Token)
             };
 
             foreach (var item in sellers)
@@ -191,11 +202,11 @@ namespace TPL
                 if (item.Status != TaskStatus.Running)
                     item.Start();
 
-            
 
 
 
-            Task task7= new Task(() =>
+
+            Task task7 = new Task(() =>
             {
                 int count = 0;
                 while (true)
@@ -231,7 +242,7 @@ namespace TPL
 
             Console.WriteLine("\n8888888888888888888888888888888888888888888888888888888888888888888888888888888888");
 
-            FactorialAsync(5);                               /// асинхронная функция факториала
+           FactorialAsync(5);                               /// асинхронная функция факториала
         Console.WriteLine("Main is still running.");
 
             Func<Task> someM = (async () =>
@@ -242,70 +253,74 @@ namespace TPL
 
             });
 
-        someM.Invoke();
+            someM.Invoke();
 
-        Console.ReadLine();
+            Console.ReadLine();
         }
 
         public static void ErSieve(int n)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
-            bool[] flags = new bool[n];
-
-            for (int i = 0; i < flags.Length; i++)
-                flags[i] = true;
-
-            flags[1] = false;
-            for (int i = 2, j = 0; i < n;)
+            for (int c = 0; c < 5; c++)
             {
-                if (flags[i])
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+
+                bool[] flags = new bool[n];
+
+                for (int i = 0; i < flags.Length; i++)
+                    flags[i] = true;
+
+                flags[1] = false;
+                for (int i = 2, j = 0; i < n;)
                 {
-                    j = i * 2;
-                    while (j < n)
+                    if (flags[i])
                     {
-                        flags[j] = false;
-                        j += i;
+                        j = i * 2;
+                        while (j < n)
+                        {
+                            flags[j] = false;
+                            j += i;
+                        }
                     }
+                    i++;
                 }
-                i++;
-            }
 
-            Console.WriteLine($"All simple numbers from 1 to {n}:");
-            for (int i = 2; i < flags.Length; i++)
-            {
-                if (flags[i])
+                Console.WriteLine($"All simple numbers from 1 to {n}:");
+                for (int i = 2; i < flags.Length; i++)
                 {
-                    Thread.Sleep(100);
-                    Console.Write($"{i} ");
-                }
-
-                if (tokenSource.Token.IsCancellationRequested)                         
-                {                                                              
-                    
-
-                    try
+                    if (flags[i])
                     {
-                        tokenSource.Token.ThrowIfCancellationRequested();
+                        Thread.Sleep(100);
+                        Console.Write($"{i} ");
                     }
-                    catch
+
+                    if (tokenSource.Token.IsCancellationRequested)
                     {
-                        stopWatch.Stop();
 
-                        Console.WriteLine("\nTotal runtime in Milliseconds:        " + stopWatch.ElapsedMilliseconds);
-                        Console.WriteLine("\nThe process was cenceled.");
 
-                        return;
+                        try
+                        {
+                            tokenSource.Token.ThrowIfCancellationRequested();
+                        }
+                        catch
+                        {
+                            stopWatch.Stop();
+
+                            Console.WriteLine("\nTotal runtime in Milliseconds:        " + stopWatch.ElapsedMilliseconds);
+                            Console.WriteLine("\nThe process was cenceled.");
+
+                            return;
+                        }
+
                     }
-                    
                 }
+                Console.WriteLine();
+
+                stopWatch.Stop();
+
+                Console.WriteLine("\nTotal runtime in Milliseconds:        " + stopWatch.ElapsedMilliseconds);
             }
-            Console.WriteLine();
-
-            stopWatch.Stop();
-                                                
-            Console.WriteLine("\nTotal runtime in Milliseconds:        " + stopWatch.ElapsedMilliseconds);
+           
         }
 
         public static int Sum(int a, int b)
@@ -333,3 +348,6 @@ namespace TPL
     }
   
 }
+
+
+//

@@ -8,6 +8,8 @@ namespace lab12
 {
     internal class KDALog
     {
+
+
         int counterUpdate = 0;
         private readonly string patch;
 

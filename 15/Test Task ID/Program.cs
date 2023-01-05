@@ -1,6 +1,4 @@
-﻿using System.Collections.Concurrent;
-
-namespace Test
+﻿namespace Test_Task_ID
 {
     internal class Program
     {
@@ -11,14 +9,6 @@ namespace Test
             Task task3 = new Task(() => { });
 
             Console.WriteLine($"{task1.Id} {task2.Id} {task3.Id}");
-
-
-
-
         }
-
-
-
-        
     }
 }

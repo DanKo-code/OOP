@@ -106,8 +106,8 @@ namespace OOP
 #endif
 
 #if Var_2
-            //var IntVal = 1;
-            //IntVal = 3.4f; присвоение переменной типа int значения типа float невозможно из-за статической типизации языка
+            var IntVal = 3.4f;
+            IntVal = 2; //присвоение переменной типа int значения типа float невозможно из - за статической типизации языка
             //компилятор лишь выбирает наиболее подходящий тип в момент инициализации
 #endif
 
@@ -132,7 +132,7 @@ namespace OOP
             }
 #endif
 
-#if !Converting_STR
+#if Converting_STR
             string str1 = "Nikita";
             string str2 = "is";
             string str3 = "groot";
@@ -375,7 +375,7 @@ namespace OOP
             FirstFunc();
             SecondFunc();
 #endif
-            
+
             Console.ReadKey();
         }
     }
