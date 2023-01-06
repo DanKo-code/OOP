@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Motor_depot.Builder;
+using Motor_depot.Prototype;
+using System.Runtime.CompilerServices;
 
 namespace Motor_depot
 {
@@ -6,7 +8,26 @@ namespace Motor_depot
     {
         static void Main(string[] args)
         {
-            System testSystem = new System();
+            //Singleton.Singleton s1 = Singleton.Singleton.Initialize();
+
+            //Console.WriteLine(s1.GetHashCode());
+
+            //Singleton.Singleton s2 = Singleton.Singleton.Initialize();
+
+            //Console.WriteLine(s2.GetHashCode());
+
+            //s1.CBC();
+            /////////////////////////////////////////////////////////////////
+            //IAnimal sheepDonor = new Sheep();
+            //sheepDonor.SetName("Долли");
+
+            //IAnimal sheepClone = sheepDonor.Clone();
+
+            //Console.WriteLine(sheepDonor.GetName());
+            //Console.WriteLine(sheepClone.GetName());
+
+
+             System testSystem = new System();
             Dispatcher testDispatcher = new Dispatcher();
             Driver testDriver = new Driver();
 
@@ -33,7 +54,17 @@ namespace Motor_depot
             Console.WriteLine();
 
 
-            testDispatcher.ViewOrders();
+            //testDispatcher.ViewOrders();
+
+            var testBuilder = new OrdersDisplayBuilder(Databases.OrderList);
+            testBuilder.BuildHeader();
+            testBuilder.BuildBody();
+            testBuilder.BuildFooter();
+
+            var display = testBuilder.GetReport();
+            Console.WriteLine(display);
+
+
             (string driverName, uint orderID) driverNameID = testDispatcher.FindDriver(Databases.OrderList[0]);
 
             //Попробуй переделать с событиями!!!

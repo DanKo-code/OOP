@@ -94,7 +94,7 @@ namespace Motor_depot
                     (Domain.Order)((new LittleCarOrderFactory(orderID, carCarring, carSpeed)).GetOrder())
 
 
-                    ) ;
+                    );
             }
             else if (carCarring <= 50)
             {
