@@ -15,8 +15,8 @@ namespace Motor_depot
             testSystem.register("Artem", 228228);
             testSystem.register("Danila", 133713);
 
-            testSystem.SignIn("Artem", 228228);
             testSystem.SignIn("Nikita", 123456);
+            testSystem.SignIn("Artem", 228228);
             testSystem.SignIn("Danila", 133713);
 
             testSystem.ViewAvailCars("Artem");
@@ -34,7 +34,7 @@ namespace Motor_depot
 
 
             testDispatcher.ViewOrders();
-            (string driverName, uint orderID) driverNameID = testDispatcher.FindDriver(Databases.OrderList[1]);
+            (string driverName, uint orderID) driverNameID = testDispatcher.FindDriver(Databases.OrderList[0]);
 
             //Попробуй переделать с событиями!!!
             //testDispatcher.DistOrderToDriver(driverNameID.orderID, driverNameID.driverName);
